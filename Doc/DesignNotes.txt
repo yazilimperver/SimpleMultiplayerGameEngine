@@ -1,0 +1,7 @@
+* Bu kütüphanemizin temel amacı bundan sonra ağ üzerinden haberleşmek için ihtiyaç duyacağımız temel gereksinimleri karşılaması olacaktır. Şu an için bunu iki seviyede yapacağız. İlk seviyede temel haberleşme mimarisini kuracağız. Bu kısım Modern C++ yapılarına dayanacak ve olabildiğince 3. parti bir kütüphaneye bağımlı olmayacak. 
+* Bunun üzerine ise artık QT'yi kullanarak uygulama ve oyunlar için temel ihtiyaçlarımız karşılayacak bir ara katman geliştireceğiz.
+* İlk etapta TCP/UPD ve Seri Kanal haberleşmesini sağlamasını bekliyoruz,
+* Burada ayrıca temel haberleşme ve protokol işlerini birbirinden ayıracağız,
+* Client/ServerSide ana sürücü sınıflar olacaklar ve bunların kendi thread'leri olacak.
+* Dışarıya belirlenmiş bir arayüz üzerinden haber verecekler,
+* Protokol için temel bir arayüz tanımlayıp, daha sonra farklı encode/decoder'ları ChannelSıde/ServeSide üzerinde sürebilirliz

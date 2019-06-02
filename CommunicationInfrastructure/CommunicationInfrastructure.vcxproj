@@ -119,11 +119,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BasicMessageProtocol.h" />
+    <ClInclude Include="ClientChannel.h" />
+    <ClInclude Include="ClientInformation.h" />
     <ClInclude Include="CommunicationInfrastructure_Global.h" />
     <ClInclude Include="IClientCommunicationMedium.h" />
+    <ClInclude Include="ICommunicationMedium.h" />
     <ClInclude Include="Message.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BasicMessageProtocol.cpp" />
+    <ClCompile Include="ClientChannel.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
