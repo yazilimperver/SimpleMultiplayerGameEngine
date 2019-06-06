@@ -1,30 +1,31 @@
 /**
- * \file    ICommunicationMedium.h
- * \date    2019/06/03
+ * \file    IClientMedium.h
+ * \date    2019/05/31
  * \author  yazilimperver
  * \brief   
  * Copyright © 2018, Check Bottom For Copyright Notice <yazilimpervergs@gmail.com>
  */
-#ifndef ICOMMUNICATIONMEDIUM_H__
-#define ICOMMUNICATIONMEDIUM_H__
+#ifndef ICLIENTMEDIUM_H__
+#define ICLIENTMEDIUM_H__
 
 #include <vector>
+#include <PropertyItem.h>
 #include <BasicTypes.h>
 
-class CommunicationParameters;
+#include <ICommunicationMedium.h>
 
-class IClientSubscriber
+class IClientObserver
+	: public ICommObserver
 {
 public:
-	virtual
+	virtual void connected() = 0;
+	virtual void disconnected() = 0;
+	virtual void errorOccurred(int errorCode) = 0;
 };
 
-/// <summary>
-/// This is base class for all classes that will be used for underlying communication mechanism
-/// In fact, to further generalize this class. We can change it as IIODevice which can then also cover files.
-/// </summary>
-class ICommunicationMedium
+class IClientMedium
 {
+	Q_OBJECT
 public:
 	/// <summary>
 	/// Each communication medium configuration parameters should be passed via this API.
@@ -34,7 +35,7 @@ public:
 	virtual void assignParameters(const CommunicationParameters& parameters) = 0;
 
 	/// <summary>
-	/// Perform initialization activities required for given medium
+	/// Perform initialization activities required for given medium (bind etc for sockets)
 	/// </summary>
 	/// <returns>The result of initialization</returns>
 	virtual bool initialize() = 0;
@@ -43,7 +44,7 @@ public:
 	/// Perform destruction and close activities required for given medium
 	/// </summary>
 	virtual void finalize() = 0;
-	
+
 	/// <summary>
 	/// Is communication medium initialized properly
 	/// </summary>
@@ -61,9 +62,17 @@ public:
 	virtual uInt64 writeData(const uByte* data, uInt64 maxSize) = 0;
 	virtual uInt64 writeData(const uChar* data) = 0;
 	virtual uInt64 writeData(const std::vector<uByte>& data) = 0;
+
+	/// <summary>
+	/// Client specific APIs
+	/// </summary>
+	virtual void connect() = 0;
+	virtual void disconnect() = 0;	
+	virtual bool isConnected() = 0;
+	virtual void getPeerInformation(std::vector<PropertyItem>& peerInfo) = 0;
 };
 
-#endif // ICOMMUNICATIONMEDIUM_H__
+#endif // ICLIENTCOMMUNICATIONMEDIUM_H__
 
 /*
   Copyright (c) [2018] [Yazilimperver <yazilimpervergs@gmail.com>]
@@ -86,6 +95,3 @@ public:
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 */
-
-#pragma once
-

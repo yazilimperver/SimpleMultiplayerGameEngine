@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Client Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Common Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Server Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="QTCPClient.cpp">
+      <Filter>Client Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommunicationParameters.cpp">
+      <Filter>Common Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyItem.cpp">
+      <Filter>Common Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BasicTypes.h">
+      <Filter>Common Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommunicationParameters.h">
+      <Filter>Common Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyItem.h">
+      <Filter>Common Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IClientMedium.h">
+      <Filter>Client Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IServerMedium.h">
+      <Filter>Server Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectedClientInformation.h">
+      <Filter>Server Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IConnectedClient.h">
+      <Filter>Server Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonMessage.h">
+      <Filter>Common Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkLibrary_Global.h">
+      <Filter>Common Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="QTCPClient.h">
+      <Filter>Client Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+</Project>

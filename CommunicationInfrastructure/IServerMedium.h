@@ -1,20 +1,18 @@
 /**
- * \file    IClientCommunicationMedium.h
- * \date    2019/05/31
+ * \file    IServerMedium.h
+ * \date    2019/06/04
  * \author  yazilimperver
  * \brief   
  * Copyright © 2018, Check Bottom For Copyright Notice <yazilimpervergs@gmail.com>
  */
-#ifndef ICLIENTCOMMUNICATIONMEDIUM_H__
-#define ICLIENTCOMMUNICATIONMEDIUM_H__
+#ifndef ISERVERMEDIUM_H__
+#define ISERVERMEDIUM_H__
 
-class IClientCommunicationMedium
+class IServerMedium
 {
-public:
-
 };
 
-#endif // ICLIENTCOMMUNICATIONMEDIUM_H__
+#endif // ISERVERMEDIUM_H__
 
 /*
   Copyright (c) [2018] [Yazilimperver <yazilimpervergs@gmail.com>]
