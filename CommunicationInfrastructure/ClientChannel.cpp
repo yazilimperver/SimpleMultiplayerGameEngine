@@ -4,6 +4,7 @@
 
 ClientChannel::ClientChannel()
 {
+  // include deneme
 }
 
 
