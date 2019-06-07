@@ -1,23 +1,19 @@
 #include <QtCore/QCoreApplication>
-#include <../NetworkLibrary/QTCPClient.h>
+#include <NetworkLibrary/QTCPClient.h>
+#include <NetworkLibrary/QTCPServer.h>
 #include "QtClass.h"
 #include <qobject>
 int main(int argc, char *argv[])
 {
 	QCoreApplication a(argc, argv);
-	QTCPClient tmp;
-	QtClass deneme{ 0 };
+	QTCPServer server;
 
 	CommunicationParameters params;
-	params.updateParameterValue("PortNo", 15000);
-	params.updateParameterValue("Address", std::string("127.0.0.1"));
-	tmp.assignParameters(params);
+	params.updateParameterValue(cIServerMedium_Parameter_LocalPort, 15000);
 
-
-	QObject::connect(&tmp, &QTCPClient::connected, &deneme, &QtClass::connected);
-	tmp.initialize();
-	tmp.connect();
-	tmp.disconnect();
+	server.assignParameters(params);
+	server.initialize();
+	server.startListening();
 
 	return a.exec();
 }

@@ -8,17 +8,26 @@
 #ifndef ICONNECTEDCLIENT_H__
 #define ICONNECTEDCLIENT_H__
 
-#include <BasicTypes.h>
+#include <NetworkLibrary/BasicTypes.h>
 
 #include <vector>
-#include <PropertyItem.h>
+#include <NetworkLibrary/PropertyItem.h>
 
 /// <summary>
 /// This class is responsible for providing information about connected clients to server
 /// </summary>
 class IConnectedClient
 {
-	public:
+public:
+	const std::string cParameter_PeerPort{ "PeerPort" };
+	const std::string cParameter_PeerAddress{ "PeerAddress" };
+	const std::string cParameter_PeerName{ "PeerName" };
+
+		/// <summary>
+		/// Close socket connection with given client
+		/// </summary>
+		virtual void disconnect() = 0;
+
 		/// <summary>
 		/// Return the id of this client
 		/// </summary>

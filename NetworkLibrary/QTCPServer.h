@@ -1,101 +1,108 @@
 /**
- * \file    IServerMedium.h
- * \date    2019/06/06
+ * \file    QTCPServer.h
+ * \date    2019/06/07
  * \author  yazilimperver
  * \brief   
  * Copyright © 2018, Check Bottom For Copyright Notice <yazilimpervergs@gmail.com>
  */
-#ifndef ISERVERMEDIUM_H__
-#define ISERVERMEDIUM_H__
+#ifndef QTCPSERVER_H__
+#define QTCPSERVER_H__
 
-#include <QObject>
-#include <NetworkLibrary/BasicTypes.h>
-#include <NetworkLibrary/PropertyItem.h>
-#include <string>
-class IConnectedClient;
-class CommunicationParameters;
+#include <NetworkLibrary/IServerMedium.h>
+#include <NetworkLibrary/CommunicationParameters.h>
 
-/// <summary>
-/// The name of parameters that can be used for server mediums
-/// The host address and port are must
-/// If no local port is provided, the currently available port is used this purpose
-/// This port then can be queried via assigned port
-/// </summary>
-const std::string cIServerMedium_Parameter_LocalAddress{ "LocalAddress" };
-const std::string cIServerMedium_Parameter_LocalPort{ "LocalPort" };
-const std::string cIServerMedium_Parameter_MaxPendingConnections{ "MaxPendingConnections" };
+#include <QTcpServer>
 
-class IServerMedium
+class QTConnectedClient;
+
+class QTCPServer
+	: public QObject, public IServerMedium
 {
+	Q_OBJECT
 public:
+
+	/// <summary>
+	/// Constructor for TCP server
+	/// </summary>
+	QTCPServer();
 
 	/// <summary>
 	/// Each communication medium configuration parameters should be passed via this API.
 	/// The list of parameters are dictated/known by communication medium itself
 	/// </summary>
 	/// <param name="parameters">The parameter mapping (name/value)</param>
-	virtual void assignParameters(const CommunicationParameters& parameters) = 0;
+	virtual void assignParameters(const CommunicationParameters& parameters) override;
 
 	/// <summary>
 	/// Perform initialization activities required for given medium (bind etc for sockets)
 	/// </summary>
 	/// <returns>The result of initialization</returns>
-	virtual bool initialize() = 0;
+	virtual bool initialize() override;
 
 	/// <summary>
 	/// Perform destruction and close activities required for given medium
 	/// </summary>
-	virtual void finalize() = 0;
+	virtual void finalize() override;
 
 	/// <summary>
 	/// Is communication medium initialized properly
 	/// </summary>
 	/// <returns>Initialization status</returns>
-	virtual bool isInitialized() = 0;
+	virtual bool isInitialized() override;
 
 	/// <summary>
 	/// Server specific APIs
 	/// </summary>
-	virtual void startListening() = 0;
-	virtual void stopListening() = 0;
-	/// <summary>
-	/// Is communication medium listening given the port
-	/// </summary>
-	/// <returns>true => can be used for that purpose, false => not ready </returns>
-	virtual bool isListening() = 0;
-	
+	virtual void startListening() override;
+	virtual void stopListening() override;
+	virtual bool isListening() override;
+
 	/// <summary>
 	/// Disconnect given client. The client will also removed from our connected list
 	/// </summary>
 	/// <param name="clientId">The unique id of client</param>
-	virtual void disconnectClient(uUInt64 clientId) = 0;
+	virtual void disconnectClient(uUInt64 clientId) override;
 
 	/// <summary>
 	/// Check if provided client is connected
 	/// </summary>
 	/// <param name="clientId">The unique id of client</param>
 	/// <returns>Connection status</returns>
-	virtual bool isConnected(uUInt64 clientId) = 0;
+	virtual bool isConnected(uUInt64 clientId) override;
 
 	/// <summary>
 	/// Obtain corresponding client information
 	/// </summary>
 	/// <param name="clientId">The unique id of client</param>
 	/// <param name="clientInfo">The client information</param>
-	virtual void getClientInformation(uUInt64 clientId, std::vector<PropertyItem>& clientInfo) = 0;
+	virtual void getClientInformation(uUInt64 clientId, std::vector<PropertyItem>& clientInfo) override;
 
 	/// <summary>
 	/// Obtain an interface for connected client that identified with given id
 	/// </summary>
 	/// <param name="clientId">The unique id of client</param>
 	/// <returns>The interface for given connected client</returns>
-	virtual IConnectedClient* getConnectedClientInterface(uUInt64 clientId) = 0;
+	virtual IConnectedClient* getConnectedClientInterface(uUInt64 clientId) override;
 
 	/// <summary>
 	/// Obtain list of connected client unique ids
 	/// </summary>
 	/// <param name="clientIdList">The list of unique ids</param>
-	virtual void getConnectedClientList(std::vector<uUInt64>& clientIdList) = 0;
+	virtual void getConnectedClientList(std::vector<uUInt64>& clientIdList) override;
+
+private slots:
+	/// <summary>
+	/// Slots for TCPServer
+	/// </summary>
+	void newClientConnected();
+	void errorOccurred(QAbstractSocket::SocketError socketError);
+
+	/// <summary>
+	/// Slots for connected clients
+	/// </summary>
+	void clientDataArrived();
+	void clientErrorOccurred(QAbstractSocket::SocketError socketError);
+
 signals:
 	/// <summary>
 	/// The signal is emitted when a new client is connected
@@ -110,12 +117,6 @@ signals:
 	void clientDisconnected(uUInt64 clientId);
 
 	/// <summary>
-	/// When writing/sending data is completed
-	/// </summary>
-	/// <param name="clientId">The unique id of client</param>
-	void clientDataWritten(uUInt64 clientId);
-
-	/// <summary>
 	/// There is data that need to be processed for given client
 	/// </summary>
 	/// <param name="clientId">The unique id of client</param>
@@ -127,16 +128,40 @@ signals:
 	/// <param name="clientId">The unique id of client</param>
 	/// <param name="errorCode">The occurred error code</param>
 	void clientErrorOccurred(uUInt64 clientId, int errorCode);
-	
+
 	/// <summary>
 	/// The signal is emitted when server associated error is occurred
 	/// </summary>
 	/// <param name="errorCode">The occurred error code</param>
 	void errorOccurred(int errorCode);
+protected:
+
+	/// <summary>
+	/// Initialization status
+	/// </summary>
+	bool mIsInitialized{ false };
+
+	/// <summary>
+	/// The TCP server socket
+	/// </summary>
+	QTcpServer mTCPServer;
+
+	/// <summary>
+	/// The parameters that will be used for socket creation/bind and connection to target host
+	/// </summary>
+	CommunicationParameters mParameters;
+
+	int mListeningPort{ 0 };
+	std::string mLocalAddress{ "127.0.0.1" };
+
+	/// <summary>
+	/// Each client is keyed with address of corresponding client
+	/// </summary>
+	std::unordered_map<uUInt64, QTConnectedClient*> mClientMapping;
+
 };
 
-
-#endif // ISERVERMEDIUM_H__
+#endif // QTCPSERVER_H__
 
 /*
   Copyright (c) [2018] [Yazilimperver <yazilimpervergs@gmail.com>]

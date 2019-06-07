@@ -44,7 +44,7 @@ bool QTCPClient::initialize()
 	}	
 
 	QObject::connect(&mTcpSocket, &QTcpSocket::connected, this, &QTCPClient::clientConnected);
-	QObject::connect(&mTcpSocket, &QTcpSocket::connected, this, &QTCPClient::clientDisconnected);
+	QObject::connect(&mTcpSocket, &QTcpSocket::disconnected, this, &QTCPClient::clientDisconnected);
 	QObject::connect(&mTcpSocket, &QIODevice::readyRead, this, &QTCPClient::dataArrived);
 
 	QObject::connect(&mTcpSocket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(errorOccurred(QAbstractSocket::SocketError)));
@@ -128,9 +128,9 @@ void QTCPClient::getPeerInformation(std::vector<PropertyItem>& peerInfo)
 		peerInfo.clear();
 
 		// fill peer data
-		peerInfo.push_back(PropertyItem{ cParameter_PeerName, mTcpSocket.peerName() });
-		peerInfo.push_back(PropertyItem{ cParameter_PeerAddress, mTcpSocket.peerAddress() });
-		peerInfo.push_back(PropertyItem{ cParameter_PeerPort, mTcpSocket.peerPort() });
+		peerInfo.push_back(PropertyItem{ IClientMedium::cParameter_PeerName, mTcpSocket.peerName() });
+		peerInfo.push_back(PropertyItem{ IClientMedium::cParameter_PeerAddress, mTcpSocket.peerAddress() });
+		peerInfo.push_back(PropertyItem{ IClientMedium::cParameter_PeerPort, mTcpSocket.peerPort() });
 	}
 }
 

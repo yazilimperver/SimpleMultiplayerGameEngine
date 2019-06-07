@@ -35,6 +35,12 @@
     <ClCompile Include="PropertyItem.cpp">
       <Filter>Common Files</Filter>
     </ClCompile>
+    <ClCompile Include="QTCPServer.cpp">
+      <Filter>Server Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QTConnectedClient.cpp">
+      <Filter>Server Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicTypes.h">
@@ -64,10 +70,16 @@
     <ClInclude Include="NetworkLibrary_Global.h">
       <Filter>Common Files</Filter>
     </ClInclude>
+    <ClInclude Include="QTConnectedClient.h">
+      <Filter>Server Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QTCPClient.h">
       <Filter>Client Files</Filter>
+    </QtMoc>
+    <QtMoc Include="QTCPServer.h">
+      <Filter>Server Files</Filter>
     </QtMoc>
   </ItemGroup>
 </Project>

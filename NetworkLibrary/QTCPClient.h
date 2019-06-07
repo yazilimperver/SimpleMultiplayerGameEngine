@@ -8,16 +8,15 @@
 #ifndef QTCPCLIENT_H__
 #define QTCPCLIENT_H__
 
-#include <IClientMedium.h>
-#include <CommunicationParameters.h>
+#include <NetworkLibrary/IClientMedium.h>
+#include <NetworkLibrary/CommunicationParameters.h>
 
-#include <qtcpsocket.h>
+#include <QTcpSocket.h>
 
 class QTCPClient
 	: public QObject, public IClientMedium
 {
 	Q_OBJECT
-	Q_INTERFACES(IClientMedium)
 public:
 
 	/// <summary>

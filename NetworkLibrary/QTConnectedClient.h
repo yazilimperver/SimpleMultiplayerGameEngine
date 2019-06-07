@@ -1,24 +1,38 @@
 /**
- * \file    ConnectedClientInformation.h
- * \date    2019/06/06
+ * \file    QTConnectedClient.h
+ * \date    2019/06/07
  * \author  yazilimperver
  * \brief   
  * Copyright © 2018, Check Bottom For Copyright Notice <yazilimpervergs@gmail.com>
  */
-#ifndef CONNECTEDCLIENTINFORMATION_H__
-#define CONNECTEDCLIENTINFORMATION_H__
+#ifndef QTCONNECTEDCLIENT_H__
+#define QTCONNECTEDCLIENT_H__
 
-#include <NetworkLibrary/BasicTypes.h>
-#include <string>
+#include <IConnectedClient.h>
+class QTcpSocket;
 
-struct ConnectedClientInformation
+class QTConnectedClient
+	: public IConnectedClient
 {
-	uUInt64     mId;
-	uInt32      mPortNo;
-	std::string mAddress;
+public:
+	QTConnectedClient(QTcpSocket*& clientSocket);
+
+	QTcpSocket* getUnderlyingSocket() 
+	{
+		return mClientSocket;
+	}
+	virtual uUInt64 getClientId() override;
+	virtual bool isActive() override;
+	virtual void getClientInformation(std::vector<PropertyItem>& clientInfo) override;
+	virtual uInt64 readData(uInt64 maxByteCount, uByte* data) override;
+	virtual uInt64 writeData(const uByte* data, uInt64 maxSize) override;
+	virtual uInt64 writeData(const uChar* data) override;
+	virtual void disconnect() override;
+protected:
+	QTcpSocket* mClientSocket{ nullptr };
 };
 
-#endif // CONNECTEDCLIENTINFORMATION_H__
+#endif // QTCONNECTEDCLIENT_H__
 
 /*
   Copyright (c) [2018] [Yazilimperver <yazilimpervergs@gmail.com>]
