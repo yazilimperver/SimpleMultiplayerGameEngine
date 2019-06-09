@@ -20,6 +20,3 @@ install:
 before_build:
   - cmd: echo %APPVEYOR_BUILD_FOLDER%
   - cmd: dir .
-
-after_build:
-- cmd: dir %platform%
