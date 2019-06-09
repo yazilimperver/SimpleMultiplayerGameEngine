@@ -1,6 +1,12 @@
 image:
 - Visual Studio 2017
 
+platform:
+  - x86
+
+configuration:
+  - Debug
+  
 branches:
   only:
     - CI_InitialIntegration
@@ -9,3 +15,7 @@ install:
   - set QTDIR=C:\Qt\5.12.2\msvc2017
   - set PATH=%QTDIR%\bin;C:\Qt\Tools\mingw730\x86_64-w64-mingw32\bin;%PATH%;
   - set QtMsBuild=%appveyor_repo_branch%\QtMsBuild
+
+before_build:
+  - mkdir %LOCALAPPDATA%\QtMsBuild
+  - copy %appveyor_repo_branch%\QtMsBuild\*.* %LOCALAPPDATA%\QtMsBuild\.
