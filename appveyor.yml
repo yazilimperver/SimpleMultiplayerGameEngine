@@ -6,8 +6,8 @@ branches:
     - CI_InitialIntegration
 
 install:
-  - set QTDIR=C:\Qt\5.12.2\msvc2017_64
-  - set PATH=%QTDIR%\bin;C:\Qt\Tools\mingw730_64\bin;%PATH%;
+  - set QTDIR=C:\Qt\5.12.2\msvc2017
+  - set PATH=%QTDIR%\bin;C:\Qt\Tools\mingw730\x86_64-w64-mingw32\bin;%PATH%;
   - set QtMsBuild=%LOCALAPPDATA%\QtMsBuild
 
 platform:
@@ -15,4 +15,3 @@ platform:
   
 configuration:
   - Debug
-  - Release
