@@ -17,4 +17,5 @@ install:
   - set QtMsBuild=%appveyor_repo_branch%\QtMsBuild
 
 before_build:
-  - dir %appveyor_repo_branch%
+  - cmd: echo %appveyor_repo_branch%
+  - cmd: dir .
