@@ -13,6 +13,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QTCIExampleLibrary", "QTCIExampleLibrary\QTCIExampleLibrary.vcxproj", "{31AD8FF4-1A7D-4245-A4D7-45B2C77BDD3B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QTCIExampleApplication", "QTCIExampleApplication\QTCIExampleApplication.vcxproj", "{2080E9E8-B651-4789-B436-ECCC04BD60C4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{31AD8FF4-1A7D-4245-A4D7-45B2C77BDD3B} = {31AD8FF4-1A7D-4245-A4D7-45B2C77BDD3B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
