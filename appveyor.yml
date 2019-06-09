@@ -17,5 +17,4 @@ install:
   - set QtMsBuild=%appveyor_repo_branch%\QtMsBuild
 
 before_build:
-  - mkdir %LOCALAPPDATA%\QtMsBuild
-  - copy %appveyor_repo_branch%\QtMsBuild\*.* %LOCALAPPDATA%\QtMsBuild\.
+  - dir %appveyor_repo_branch%
