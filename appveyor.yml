@@ -1,4 +1,7 @@
-image: Visual Studio 2017
+image:
+- Visual Studio 2017
+- Ubuntu
+
 branches:
   only:
     - CI_InitialIntegration
@@ -6,6 +9,7 @@ branches:
 install:
   - set QTDIR=C:\Qt\5.12.2\msvc2017_64
   - set PATH=%QTDIR%\bin;C:\Qt\Tools\mingw730_64\bin;%PATH%;
+  - set QtMsBuild=%LOCALAPPDATA%\QtMsBuild
 
 platform:
   - x86
@@ -13,3 +17,11 @@ platform:
 configuration:
   - Debug
   - Release
+
+build_script:
+- ps: |
+    if ($isLinux) {
+      Write-Host "This is Linux!"
+    } else {
+      Write-Host "This is NOT a Linux!"
+    }
