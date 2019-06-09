@@ -1,0 +1,18 @@
+image:
+- Visual Studio 2017
+
+branches:
+  only:
+    - CI_InitialIntegration
+
+install:
+  - set QTDIR=C:\Qt\5.12.2\msvc2017_64
+  - set PATH=%QTDIR%\bin;C:\Qt\Tools\mingw730_64\bin;%PATH%;
+  - set QtMsBuild=%LOCALAPPDATA%\QtMsBuild
+
+platform:
+  - x86
+  
+configuration:
+  - Debug
+  - Release
