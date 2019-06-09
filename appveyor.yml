@@ -17,6 +17,11 @@ install:
   - set PATH=%QTDIR%\bin;C:\Qt\Tools\mingw730\x86_64-w64-mingw32\bin;%PATH%;
   - set QtMsBuild=%APPVEYOR_BUILD_FOLDER%\QtMsBuild
 
+artifacts:
+- path: Win32\Debug\NetworkLibrary.lib
+- path: Win32\Debug\QTCIExampleApplication.exe
+- path: Win32\Debug\QtConsoleApplication1.exe
+
 before_build:
   - cmd: echo %APPVEYOR_BUILD_FOLDER%
   - cmd: dir .
