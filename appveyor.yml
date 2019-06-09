@@ -1,5 +1,5 @@
 image:
-- Ubuntu
+- Visual Studio 2017
 
 branches:
   only:
@@ -16,11 +16,3 @@ platform:
 configuration:
   - Debug
   - Release
-
-build_script:
-- ps: |
-    if ($isLinux) {
-      Write-Host "This is Linux!"
-    } else {
-      Write-Host "This is NOT a Linux!"
-    }
