@@ -32,7 +32,7 @@ public:
 		/// Return the id of this client
 		/// </summary>
 		/// <returns>Client id</returns>
-		virtual uUInt64 getClientId() = 0;
+		virtual uInt64 getClientId() = 0;
 
 		/// <summary>
 		/// Is client active
@@ -47,7 +47,7 @@ public:
 		virtual void getClientInformation(std::vector<PropertyItem>& clientInfo) = 0;
 
 		/// <summary>
-		/// Data APIs
+		/// Data APIs. Read can be initiated when a data read is ready
 		/// </summary>
 		virtual uInt64 readData(uInt64 maxByteCount, uByte* data) = 0;
 		virtual uInt64 writeData(const uByte* data, uInt64 maxSize) = 0;

@@ -7,15 +7,21 @@
 #include <QHostAddress>
 #include <iostream>
 
-QTConnectedClient::QTConnectedClient(QTcpSocket*& clientSocket) 
+QTConnectedClient::QTConnectedClient(uInt64 uniqueId, QTcpSocket*& clientSocket)
 	: mClientSocket{ clientSocket }
+	, mUniqueId{uniqueId}
 {
 
 }
 
-uUInt64 QTConnectedClient::getClientId()
+QTcpSocket* QTConnectedClient::getUnderlyingSocket()
 {
-	return static_cast<uUInt64>(mClientSocket->socketDescriptor());
+	return mClientSocket;
+}
+
+uInt64 QTConnectedClient::getClientId()
+{
+	return mUniqueId;
 }
 
 bool QTConnectedClient::isActive()

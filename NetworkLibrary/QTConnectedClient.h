@@ -15,20 +15,56 @@ class QTConnectedClient
 	: public IConnectedClient
 {
 public:
-	QTConnectedClient(QTcpSocket*& clientSocket);
+	/// <summary>
+	/// The constructor that takes underlying socket
+	/// </summary>
+	/// <param name="uniqueId">The unique id that will be used to identify this sockets</param>
+	/// <param name="clientSocket">The socket that this interface manage</param>
+	QTConnectedClient(uInt64 uniqueId, QTcpSocket*& clientSocket);
 
-	QTcpSocket* getUnderlyingSocket() 
-	{
-		return mClientSocket;
-	}
-	virtual uUInt64 getClientId() override;
+	/// <summary>
+	/// Returns the underlying socket
+	/// </summary>
+	/// <returns>Underlying socket</returns>
+	QTcpSocket* getUnderlyingSocket();
+
+	/// <summary>
+	/// Returns the unique id associated with this client
+	/// </summary>
+	/// <returns>-1 if no socket associated ow unique id</returns>
+	virtual uInt64 getClientId() override;
+
+	/// <summary>
+	/// Is this client still connected
+	/// </summary>
+	/// <returns>The client socket connection status</returns>
 	virtual bool isActive() override;
+
+	/// <summary>
+	/// Return the information related with this client (address, port, name)
+	/// </summary>
+	/// <param name="clientInfo">The list of parameters</param>
 	virtual void getClientInformation(std::vector<PropertyItem>& clientInfo) override;
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="maxByteCount"></param>
+	/// <param name="data"></param>
+	/// <returns></returns>
 	virtual uInt64 readData(uInt64 maxByteCount, uByte* data) override;
 	virtual uInt64 writeData(const uByte* data, uInt64 maxSize) override;
 	virtual uInt64 writeData(const uChar* data) override;
 	virtual void disconnect() override;
 protected:
+	/// <summary>
+	/// The unique identifier
+	/// </summary>
+	uInt64 mUniqueId{ -1 };
+
+	/// <summary>
+	/// Underlying socket
+	/// </summary>
 	QTcpSocket* mClientSocket{ nullptr };
 };
 

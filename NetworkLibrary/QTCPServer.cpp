@@ -47,7 +47,7 @@ bool QTCPServer::initialize()
 
 	// Server signal slots
 	connect(&mTCPServer, SIGNAL(newConnection()), this, SLOT(newClientConnected()));
-	connect(&mTCPServer, SIGNAL(acceptError(QAbstractSocket::SocketError)), this, SLOT(errorOccurred(QAbstractSocket::SocketError)));
+	connect(&mTCPServer, SIGNAL(acceptError(QAbstractSocket::SocketError)), this, SLOT(acceptErrorOccurred(QAbstractSocket::SocketError)));
 
 	if (false == mIsInitialized)
 		std::cout << "[QTCPServer] Initialization failed!" << '\n';
@@ -133,84 +133,54 @@ void QTCPServer::newClientConnected()
 	while (mTCPServer.hasPendingConnections())
 	{
 		auto newConn = mTCPServer.nextPendingConnection();
-		uUInt64 clientId = static_cast<uUInt64>(newConn->socketDescriptor());
 
-		std::cout << "[QTCPServer] A new client with given id : " << clientId << " is connected!" << '\n';
+		uInt64 currentId = mClientSeedId;
+		std::cout << "[QTCPServer] A new client with given id : " << currentId << " is connected!" << '\n';
 
-		mClientMapping[clientId] = new QTConnectedClient(newConn);
+		mClientIdMapping[newConn] = currentId;
+		mClientMapping[currentId] = new QTConnectedClient(currentId, newConn);
 
 		// add new signal/slot for newly connected client
-		connect(newConn, SIGNAL(readyRead()), this, SLOT(clientDataArrived()));
+		connect(newConn, &QIODevice::readyRead, [=] {clientDataReadyToRead(currentId); });
+		connect(newConn, &QAbstractSocket::disconnected, [=] {clientDisconnected(currentId); });
 		connect(newConn, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(clientErrorOccurred(QAbstractSocket::SocketError)));
 
+		mClientSeedId++;
+
 		// Inform listeners
-		emit newClientConnected(clientId);
-	}
-}
-
-void QTCPServer::clientDataArrived()
-{
-	QTcpSocket* socket = reinterpret_cast<QTcpSocket*>(sender());
-	if (nullptr != socket)
-	{
-		uUInt64 clientId = static_cast<uUInt64>(socket->socketDescriptor());
-
-		std::cout << "[QTCPServer] Data ready for given client ID: " << clientId << " is read!" << '\n';
-
-		emit clientDataReadyToRead(clientId);
+		emit newClientConnected(currentId);
 	}
 }
 
 void QTCPServer::clientErrorOccurred(QAbstractSocket::SocketError socketError)
 {
 	QTcpSocket* socket = reinterpret_cast<QTcpSocket*>(sender());
+
 	if (nullptr != socket)
 	{
-		switch (socketError)
+		if (auto clientIdItr = mClientIdMapping.find(socket); clientIdItr != mClientIdMapping.end())
 		{
-		case QAbstractSocket::RemoteHostClosedError:
-		{
-			std::cout << "[QTCPServer] Client Error: Remote host is closed!" << '\n';
+			uUInt64 clientId = clientIdItr->second;
 
-			uUInt64 clientId = static_cast<uUInt64>(socket->socketDescriptor());
+			switch (socketError)
+			{
+			case QAbstractSocket::RemoteHostClosedError:
+			{
+				std::cout << "[QTCPServer] Client with given ID: " << clientId << " is disconnected!" << '\n';
+			}
+			break;
+			default:
+				std::cout << "[QTCPServer] Client Error: " << socket->errorString().data() << '\n';
+			}
 
-			// remove it from list
-			mClientMapping.erase(clientId);
-
-			std::cout << "[QTCPServer] Client with given ID: " << clientId << " is disconnected and removed!" << '\n';
+			emit clientErrorOccurred(clientId, static_cast<int>(socketError));
 		}
-			break;
-		case QAbstractSocket::HostNotFoundError:
-			std::cout << "[QTCPServer] Client Error: The host was not found.Please check the host name and port settings." << '\n';
-			break;
-		case QAbstractSocket::ConnectionRefusedError:
-
-			std::cout << "[QTCPServer] Client Error: The connection was refused by the peer. Make sure the server is running, and check that the host name and port settings are correct." << '\n';
-			break;
-		default:
-			std::cout << "[QTCPServer] Client Error: " << socket->errorString().data() << '\n';
-		}
-
-		uUInt64 clientId = static_cast<uUInt64>(socket->socketDescriptor());
-		emit clientErrorOccurred(clientId, static_cast<int>(socketError));
+		else
+			std::cout << "[QTCPServer] Given client not found in currently connected client list!" << std::endl;
 	}
 }
 
-void QTCPServer::errorOccurred(QAbstractSocket::SocketError socketError)
+void QTCPServer::acceptErrorOccurred(QAbstractSocket::SocketError socketError)
 {
-	switch (socketError)
-	{
-	case QAbstractSocket::RemoteHostClosedError:
-		std::cout << "[QTCPServer] Server Error: Remote host is closed!" << '\n';
-		break;
-	case QAbstractSocket::HostNotFoundError:
-		std::cout << "[QTCPServer] Server Error: The host was not found.Please check the host name and port settings." << '\n';
-		break;
-	case QAbstractSocket::ConnectionRefusedError:
-
-		std::cout << "[QTCPServer] Server Error: The connection was refused by the peer. Make sure the server is running, and check that the host name and port settings are correct." << '\n';
-		break;
-	default:
-		std::cout << "[QTCPServer] Server Error: " << mTCPServer.errorString().data() << '\n';
-	}
+	std::cout << "[QTCPServer] Server Accept Error! Error: " << mTCPServer.errorString().data() << '\n';
 }

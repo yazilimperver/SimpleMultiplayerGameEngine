@@ -12,6 +12,7 @@
 #include <NetworkLibrary/CommunicationParameters.h>
 
 #include <QTcpServer>
+#include <QTcpSocket>
 
 class QTConnectedClient;
 
@@ -95,12 +96,11 @@ private slots:
 	/// Slots for TCPServer
 	/// </summary>
 	void newClientConnected();
-	void errorOccurred(QAbstractSocket::SocketError socketError);
+	void acceptErrorOccurred(QAbstractSocket::SocketError socketError);
 
 	/// <summary>
 	/// Slots for connected clients
 	/// </summary>
-	void clientDataArrived();
 	void clientErrorOccurred(QAbstractSocket::SocketError socketError);
 
 signals:
@@ -108,26 +108,26 @@ signals:
 	/// The signal is emitted when a new client is connected
 	/// </summary>
 	/// <param name="clientId">The unique id of client</param>	
-	void newClientConnected(uUInt64 clientId);
+	void newClientConnected(uInt64 clientId);
 
 	/// <summary>
 	/// The signal is emitted when a connected client is disconnected
 	/// </summary>
 	/// <param name="clientId">The unique id of client</param>
-	void clientDisconnected(uUInt64 clientId);
+	void clientDisconnected(uInt64 clientId);
 
 	/// <summary>
 	/// There is data that need to be processed for given client
 	/// </summary>
 	/// <param name="clientId">The unique id of client</param>
-	void clientDataReadyToRead(uUInt64 clientId);
+	void clientDataReadyToRead(uInt64 clientId);
 
 	/// <summary>
 	/// The signal is emitted when any kind of error is occurred for given client
 	/// </summary>
 	/// <param name="clientId">The unique id of client</param>
 	/// <param name="errorCode">The occurred error code</param>
-	void clientErrorOccurred(uUInt64 clientId, int errorCode);
+	void clientErrorOccurred(uInt64 clientId, int errorCode);
 
 	/// <summary>
 	/// The signal is emitted when server associated error is occurred
@@ -151,14 +151,22 @@ protected:
 	/// </summary>
 	CommunicationParameters mParameters;
 
+	/// <summary>
+	/// The server parameters
+	/// </summary>
 	int mListeningPort{ 0 };
 	std::string mLocalAddress{ "127.0.0.1" };
 
 	/// <summary>
-	/// Each client is keyed with address of corresponding client
+	/// The id that will be used for uniquely identifying clients
 	/// </summary>
-	std::unordered_map<uUInt64, QTConnectedClient*> mClientMapping;
+	uInt64 mClientSeedId{ 0 };
 
+	/// <summary>
+	/// Each client is keyed with address of corresponding client as well as unique id
+	/// </summary>
+	std::unordered_map<QTcpSocket*, uInt64> mClientIdMapping;
+	std::unordered_map<uInt64, QTConnectedClient*> mClientMapping;
 };
 
 #endif // QTCPSERVER_H__
