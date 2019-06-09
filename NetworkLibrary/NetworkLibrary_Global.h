@@ -1,23 +1,12 @@
 /**
- * \file    CommunicationInfrastructure_Global.h
- * \date    2019/05/31
+ * \file    NetworkLibrary_Global.h
+ * \date    2019/06/07
  * \author  yazilimperver
- * \brief   In this file, we are going to briefly describe the protocol that will be used for communication.
-This protocol is very simple and just for simple multiplayer communication.
-
-General Principles:
-- Participants can join lobby till permitted capacity
-- If client does not respond to heartbeat msg (ID:0) three times it is assumed dead, disconnected and dropped
-- Client requested information when connected client should provide them in 1 second before join
-- Min message length is 8 bytes
-
-Message Structure:
-MsgStart <1 Byte> | Direction <1 Bytes>| MsgID <1 Bytes>| MsgLength <1 Bytes> | MsgContent | MsgEnd <4 Bytes>
-
+ * \brief   
  * Copyright © 2018, Check Bottom For Copyright Notice <yazilimpervergs@gmail.com>
  */
-#ifndef COMMUNICATIONINFRASTRUCTURE_GLOBAL_H__
-#define COMMUNICATIONINFRASTRUCTURE_GLOBAL_H__
+#ifndef NETWORKLIBRARY_GLOBAL_H__
+#define NETWORKLIBRARY_GLOBAL_H__
 
  /// Common message protocol constants
 constexpr int  cMinMsgLength = 8;
@@ -31,8 +20,7 @@ constexpr int  cMsgDataIndex = 4;
 constexpr char cMsgDirServerToClient = 1;
 constexpr char cMsgDirClientToServer = 2;
 
-
-#endif // COMMUNICATIONINFRASTRUCTURE_GLOBAL_H__
+#endif // NETWORKLIBRARY_GLOBAL_H__
 
 /*
   Copyright (c) [2018] [Yazilimperver <yazilimpervergs@gmail.com>]

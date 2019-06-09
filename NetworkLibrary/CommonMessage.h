@@ -1,20 +1,20 @@
 /**
- * \file    Message.h
- * \date    2019/05/31
+ * \file    CommonMessage.h
+ * \date    2019/06/07
  * \author  yazilimperver
  * \brief   
  * Copyright © 2018, Check Bottom For Copyright Notice <yazilimpervergs@gmail.com>
  */
-#ifndef MESSAGE_H__
-#define MESSAGE_H__
+#ifndef COMMONMESSAGE_H__
+#define COMMONMESSAGE_H__
 
-#include <CommunicationInfrastructure_Global.h>
+#include <NetworkLibrary_Global.h>
 #include <vector>
 
  // Message Structure :
  // MsgStart <1 Byte> | Direction <1 Bytes> | MsgID <1 Bytes> | MsgLength <1 Bytes> | MsgContent | MsgEnd <4 Bytes>
 
-struct Message
+struct CommonMessage
 {
 	unsigned char mMsgStart{ cExpectedMsgStart };
 	unsigned char mMsgId{ 0 };
@@ -23,7 +23,7 @@ struct Message
 	std::vector<unsigned char> mMsgContent;
 };
 
-#endif // MESSAGE_H__
+#endif // COMMONMESSAGE_H__
 
 /*
   Copyright (c) [2018] [Yazilimperver <yazilimpervergs@gmail.com>]

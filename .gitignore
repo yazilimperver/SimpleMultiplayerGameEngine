@@ -3,3 +3,11 @@
 ################################################################################
 
 /.vs/SimpleMultiplayerGameEngine/v15
+/CommunicationInfrastructure/Debug
+/CommunicationInfrastructure/x64/Debug
+/Debug
+/NetworkLibrary/Debug
+/NetworkLibrary/GeneratedFiles/Debug
+/QtConsoleApplication1/Debug
+/Win32/Debug
+/x64/Debug

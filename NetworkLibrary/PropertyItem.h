@@ -1,20 +1,26 @@
 /**
- * \file    IClientCommunicationMedium.h
- * \date    2019/05/31
+ * \file    PropertyItem.h
+ * \date    2019/06/04
  * \author  yazilimperver
  * \brief   
  * Copyright © 2018, Check Bottom For Copyright Notice <yazilimpervergs@gmail.com>
  */
-#ifndef ICLIENTCOMMUNICATIONMEDIUM_H__
-#define ICLIENTCOMMUNICATIONMEDIUM_H__
+#ifndef PROPERTYITEM_H__
+#define PROPERTYITEM_H__
 
-class IClientCommunicationMedium
+#include <string>
+#include <any>
+
+struct PropertyItem
 {
-public:
+	PropertyItem();
+	PropertyItem(const std::string& name, const std::any& value);
 
+	std::string mName;
+	std::any mValue;
 };
 
-#endif // ICLIENTCOMMUNICATIONMEDIUM_H__
+#endif // PROPERTYITEM_H__
 
 /*
   Copyright (c) [2018] [Yazilimperver <yazilimpervergs@gmail.com>]
