@@ -8,13 +8,4 @@ branches:
 install:
   - set QTDIR=C:\Qt\5.12.2\msvc2017
   - set PATH=%QTDIR%\bin;C:\Qt\Tools\mingw730\x86_64-w64-mingw32\bin;%PATH%;
-  - set QtMsBuild=%LOCALAPPDATA%\QtMsBuild
-
-platform:
-  - x86
-  
-configuration:
-  - Debug
-
-build:
-  - msbuild.exe SimpleMultiplayerGameEngine.sln /p:Configuration=Release /p:Platform="x86"
+  - set QtMsBuild=%appveyor_repo_branch%\QtMsBuild
