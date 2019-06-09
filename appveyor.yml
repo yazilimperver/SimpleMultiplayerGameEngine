@@ -15,3 +15,6 @@ platform:
   
 configuration:
   - Debug
+
+build:
+  - msbuild.exe SimpleMultiplayerGameEngine.sln /p:Configuration=Release /p:Platform="x86"
