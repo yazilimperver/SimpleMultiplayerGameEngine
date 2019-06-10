@@ -1,3 +1,7 @@
+```diff
+- NOTE THAT WORK ON THIS REPOSITORY (AND README) IS NOT COMPLETED YET! SO TAKE CARE.
+```
+
 # Snake V2 : Simple Multiplayer Game Engine Project
 
 The main purpose of this project repository is to develop simple multiplayer game engine capability for our Snake game.
