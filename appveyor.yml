@@ -6,6 +6,7 @@ platform:
 
 configuration:
   - Debug
+  - Release
   
 branches:
   only:
@@ -14,8 +15,16 @@ branches:
 install:
   - set QTDIR=C:\Qt\5.12.2\msvc2017
   - set PATH=%QTDIR%\bin;C:\Qt\Tools\mingw730\x86_64-w64-mingw32\bin;%PATH%;
-  - set QtMsBuild=%appveyor_repo_branch%\QtMsBuild
+  - set QtMsBuild=%APPVEYOR_BUILD_FOLDER%\QtMsBuild
+
+artifacts:
+- path: Win32\Debug\NetworkLibrary.lib
+- path: Win32\Debug\QTCIExampleApplication.exe
+- path: Win32\Debug\QtConsoleApplication1.exe
 
 before_build:
-  - cmd: echo %appveyor_repo_branch%
+  - cmd: echo %APPVEYOR_BUILD_FOLDER%
+  - cmd: dir .
+
+after_build:
   - cmd: dir .
