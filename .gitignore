@@ -18,3 +18,5 @@
 /QTCIExampleLibrary/QTCIExampleLibrary.vcxproj.user
 /QTCIExampleApplication/QTCIExampleApplication.vcxproj.user
 /NetworkLibrary/NetworkLibrary.vcxproj.user
+/intermediate
+/binary/Win32/Debug
