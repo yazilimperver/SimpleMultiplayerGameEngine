@@ -5,7 +5,7 @@
 # Snake V2 : Simple Multiplayer Game Engine Project
 
 The main purpose of this project repository is to develop simple multiplayer game engine capability for our Snake game.
-Check out: http://www.yazilimperver.com/index.php/2019/01/06/snake-v1-0/?lang=en
+You can find the associated blog series via this post: http://www.yazilimperver.com/index.php/2019/06/11/basit-coklu-oyuncu-motoru-snake-v2-0-giris/
 
 Moreover, I would like to show you thehow can we simply enable continous integration and unit testing for C++ projects in cross platform fashion using CMake as well as introduction of QT library. 
 
