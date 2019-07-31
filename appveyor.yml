@@ -10,7 +10,7 @@ configuration:
   
 branches:
   only:
-    - CI_InitialIntegration
+    - master
 
 install:
   - set QTDIR=C:\Qt\5.12.2\msvc2017
