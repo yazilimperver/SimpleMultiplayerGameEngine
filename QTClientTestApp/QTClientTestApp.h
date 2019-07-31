@@ -1,6 +1,6 @@
 #pragma once
 
-#include <QtWidgets/QMainWindow>
+#include <QMainWindow>
 #include "ui_QTClientTestApp.h"
 
 class QTClientTestApp : public QMainWindow
