@@ -1,5 +1,5 @@
 #include "QTClientTestApp.h"
-#include <QApplication>
+#include <QApplication.h>
 
 int main(int argc, char *argv[])
 {
