@@ -9,7 +9,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtConsoleApplication1", "Qt
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QTClientTestApp", "QTClientTestApp\QTClientTestApp.vcxproj", "{6E328AC3-29D2-472A-861D-D784482BD5F8}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtConsoleApplication2", "QtConsoleApplication2\QtConsoleApplication2.vcxproj", "{9A57B272-66BE-49EA-BF05-E4A47252787B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QTServerTestApp", "QTServerTestApp\QTServerTestApp.vcxproj", "{772326B9-D6EF-4005-8F9C-628168B47AB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,12 +43,12 @@ Global
 		{6E328AC3-29D2-472A-861D-D784482BD5F8}.Release|x64.Build.0 = Release|x64
 		{6E328AC3-29D2-472A-861D-D784482BD5F8}.Release|x86.ActiveCfg = Release|Win32
 		{6E328AC3-29D2-472A-861D-D784482BD5F8}.Release|x86.Build.0 = Release|Win32
-		{9A57B272-66BE-49EA-BF05-E4A47252787B}.Debug|x64.ActiveCfg = Debug|Win32
-		{9A57B272-66BE-49EA-BF05-E4A47252787B}.Debug|x86.ActiveCfg = Debug|Win32
-		{9A57B272-66BE-49EA-BF05-E4A47252787B}.Debug|x86.Build.0 = Debug|Win32
-		{9A57B272-66BE-49EA-BF05-E4A47252787B}.Release|x64.ActiveCfg = Release|Win32
-		{9A57B272-66BE-49EA-BF05-E4A47252787B}.Release|x86.ActiveCfg = Release|Win32
-		{9A57B272-66BE-49EA-BF05-E4A47252787B}.Release|x86.Build.0 = Release|Win32
+		{772326B9-D6EF-4005-8F9C-628168B47AB3}.Debug|x64.ActiveCfg = Debug|Win32
+		{772326B9-D6EF-4005-8F9C-628168B47AB3}.Debug|x86.ActiveCfg = Debug|Win32
+		{772326B9-D6EF-4005-8F9C-628168B47AB3}.Debug|x86.Build.0 = Debug|Win32
+		{772326B9-D6EF-4005-8F9C-628168B47AB3}.Release|x64.ActiveCfg = Release|Win32
+		{772326B9-D6EF-4005-8F9C-628168B47AB3}.Release|x86.ActiveCfg = Release|Win32
+		{772326B9-D6EF-4005-8F9C-628168B47AB3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
