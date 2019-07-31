@@ -22,3 +22,5 @@
 /binary/Win32/Debug
 /NetworkLibrary/network-cppcheck-build-dir
 /QTClientTestApp/Debug
+/binary/x64/Debug
+/QTClientTestApp/x64/Debug
