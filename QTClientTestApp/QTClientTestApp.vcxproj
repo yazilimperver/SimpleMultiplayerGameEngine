@@ -122,9 +122,6 @@
   <ItemGroup>
     <QtUic Include="QTClientTestApp.ui" />
   </ItemGroup>
-  <ItemGroup>
-    <QtRcc Include="QTClientTestApp.qrc" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
     <Import Project="$(QtMsBuild)\qt.targets" />

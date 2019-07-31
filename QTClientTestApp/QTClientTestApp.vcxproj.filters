@@ -47,9 +47,4 @@
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
-  <ItemGroup>
-    <QtRcc Include="QTClientTestApp.qrc">
-      <Filter>Resource Files</Filter>
-    </QtRcc>
-  </ItemGroup>
 </Project>
