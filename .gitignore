@@ -26,3 +26,4 @@
 /QTClientTestApp/x64/Debug
 /QtConsoleApplication2/Debug
 /QTServerTestApp/QTServerTestApp.vcxproj.user
+*.user
