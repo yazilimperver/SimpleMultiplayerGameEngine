@@ -19,7 +19,7 @@ install:
 
 artifacts:
 - path: Win32\Debug\NetworkLibrary.lib
-- path: Win32\Debug\QTCIExampleApplication.exe
+- path: Win32\Debug\QTClientTestApp.exe
 - path: Win32\Debug\QtConsoleApplication1.exe
 
 before_build:
