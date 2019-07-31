@@ -125,6 +125,7 @@ protected:
 
 	/// <summary>
 	/// The parameters that will be used for socket creation/bind and connection to target host
+	/// Note that QT dynamic properties can also be used for this purpose
 	/// </summary>
 	CommunicationParameters mParameters;
 };

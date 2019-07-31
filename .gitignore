@@ -20,3 +20,4 @@
 /NetworkLibrary/NetworkLibrary.vcxproj.user
 /intermediate
 /binary/Win32/Debug
+/NetworkLibrary/network-cppcheck-build-dir
