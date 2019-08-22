@@ -3,7 +3,7 @@
  * \date    2019/06/05
  * \author  yazilimperver
  * \brief   
- * Copyright © 2018, Check Bottom For Copyright Notice <yazilimpervergs@gmail.com>
+ * Copyright © 2019, Check Bottom For Copyright Notice <yazilimpervergs@gmail.com>
  */
 #ifndef QTCPCLIENT_H__
 #define QTCPCLIENT_H__
@@ -13,97 +13,109 @@
 
 #include <QTcpSocket.h>
 
+/*! @brief	A qtcp client. */
 class QTCPClient
 	: public QObject, public IClientMedium
 {
 	Q_OBJECT
 public:
 
-	/// <summary>
-	/// Constructor for TCP client
-	/// </summary>
+	/*! @brief	Constructor for TCP client */
 	QTCPClient();
 
-	/// <summary>
-	/// Each communication medium configuration parameters should be passed via this API.
-	/// The list of parameters are dictated/known by communication medium itself
-	/// </summary>
-	/// <param name="parameters">The parameter mapping (name/value)</param>
+	/*!
+	 * @brief	Each communication medium configuration parameters should be passed via this API. The
+	 * 			list of parameters are dictated/known by communication medium itself
+	 *
+	 * @param	parameters	The parameter mapping (name/value)
+	 */
 	virtual void assignParameters(const CommunicationParameters& parameters) override;
 
-	/// <summary>
-	/// Perform initialization activities required for given medium (bind etc for sockets)
-	/// </summary>
-	/// <returns>The result of initialization</returns>
+	/*!
+	 * @brief	Perform initialization activities required for given medium (bind etc for client
+	 * 			sockets)
+	 *
+	 * @returns	The result of initialization.
+	 */
 	virtual bool initialize() override;
 
-	/// <summary>
-	/// Perform destruction and close activities required for given medium
-	/// </summary>
+	/*! @brief	Perform destruction and close activities required for given medium */
 	virtual void finalize() override;
 
-	/// <summary>
-	/// Is communication medium initialized properly
-	/// </summary>
-	/// <returns>Initialization status</returns>
+	/*!
+	 * @brief	Is communication medium initialized properly
+	 *
+	 * @returns	Initialization status.
+	 */
 	virtual bool isInitialized() override;
 
-	/// <summary>
-	/// Is communication medium ready for communication
-	/// </summary>
-	/// <returns>true => can be used for that purpose, false => not ready </returns>
+	/*!
+	 * @brief	Is communication medium ready for communication
+	 *
+	 * @returns	true => can be used for that purpose, false => not ready.
+	 */
 	virtual bool isActive() override;
 
-	/// <summary>
-	/// Data APIs
-	/// </summary>
+	/*!
+	 * @brief	Data APIs
+	 *
+	 * @param 		  	maxByteCount	Number of maximum bytes.
+	 * @param [in,out]	data			If non-null, the data.
+	 *
+	 * @returns	The data.
+	 */
 	virtual uInt64 readData(uInt64 maxByteCount, uByte* data) override;
+	virtual QByteArray readData(uInt64 maxByteCount) override;
 	virtual uInt64 writeData(const uByte* data, uInt64 maxSize) override;
+	virtual uInt64 writeData(const QByteArray& data) override;
 	virtual uInt64 writeData(const uChar* data) override;
 
-	/// <summary>
-	/// To connect given destination with respect to provided parameters
-	/// The medium should be initialized beforehand
-	/// </summary>
+	/*!
+	 * @brief	To connect given destination with respect to provided parameters The medium should be
+	 * 			initialized beforehand
+	 */
 	virtual void connect() override;
 
-	/// <summary>
-	/// Disconnect from destination
-	/// </summary>
+	/*! @brief	Disconnect from destination */
 	virtual void disconnect() override;
 
-	/// <summary>
-	/// Is medium connected
-	/// </summary>
-	/// <returns>Connection status</returns>
+	/*!
+	 * @brief	Is medium connected
+	 *
+	 * @returns	Connection status.
+	 */
 	virtual bool isConnected() override;
 
-	/// <summary>
-	/// Returns the information about other end point
-	/// </summary>
-	/// <param name="peerInfo">End point information</param>
+	/*!
+	 * @brief	Returns the information about other end point
+	 *
+	 * @param [in,out]	peerInfo	End point information.
+	 */
 	virtual void getPeerInformation(std::vector<PropertyItem>& peerInfo) override;
 
+
+	/*!
+	 * @brief	Available data size
+	 *
+	 * @returns	An uInt64.
+	 */
+	virtual uInt64 availableDataSize() override;
+
 signals:
-	/// <summary>
-	/// The signal is emitted when current client is connected
-	/// </summary>
+	/*! @brief	The signal is emitted when current client is connected */
 	void connected();
 
-	/// <summary>
-	/// The signal is emitted when current client is disconnected
-	/// </summary>
+	/*! @brief	The signal is emitted when current client is disconnected */
 	void disconnected();
 
-	/// <summary>
-	/// The signal is emitted when any kind of error is occurred
-	/// </summary>
-	/// <param name="errorCode">The occurred error</param>
-	void errorOccurred(int errorCode);
+	/*!
+	 * @brief	The signal is emitted when any kind of error is occurred
+	 *
+	 * @param	errorCode	The occurred error.
+	 */
+	void socketErrorOccurred(int errorCode);
 
-	/// <summary>
-	/// There is data that need to be processed
-	/// </summary>
+	/*! @brief	There is data that need to be processed */
 	void dataReadyToRead();
 
 private slots:
@@ -113,27 +125,23 @@ private slots:
 	void errorOccurred(QAbstractSocket::SocketError socketError);
 protected:
 
-	/// <summary>
-	/// Initialization status
-	/// </summary>
+	/*! @brief	Initialization status */
 	bool mIsInitialized{ false };
 
-	/// <summary>
-	/// Underlying TCP client socket
-	/// </summary>
+	/*! @brief	Underlying TCP client socket */
 	QTcpSocket mTcpSocket;
 
-	/// <summary>
-	/// The parameters that will be used for socket creation/bind and connection to target host
-	/// Note that QT dynamic properties can also be used for this purpose
-	/// </summary>
+	/*!
+	 * @brief	The parameters that will be used for socket creation/bind and connection to target
+	 * 			host Note that QT dynamic properties can also be used for this purpose
+	 */
 	CommunicationParameters mParameters;
 };
 
 #endif // QTCPCLIENT_H__
 
 /*
-  Copyright (c) [2018] [Yazilimperver <yazilimpervergs@gmail.com>]
+  Copyright (c) [2019][Yazilimperver <yazilimpervergs@gmail.com>]
   
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal

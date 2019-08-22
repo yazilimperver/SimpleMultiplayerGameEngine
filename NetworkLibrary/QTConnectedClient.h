@@ -3,7 +3,7 @@
  * \date    2019/06/07
  * \author  yazilimperver
  * \brief   
- * Copyright © 2018, Check Bottom For Copyright Notice <yazilimpervergs@gmail.com>
+ * Copyright © 2019, Check Bottom For Copyright Notice <yazilimpervergs@gmail.com>
  */
 #ifndef QTCONNECTEDCLIENT_H__
 #define QTCONNECTEDCLIENT_H__
@@ -71,7 +71,7 @@ protected:
 #endif // QTCONNECTEDCLIENT_H__
 
 /*
-  Copyright (c) [2018] [Yazilimperver <yazilimpervergs@gmail.com>]
+  Copyright (c) [2019][Yazilimperver <yazilimpervergs@gmail.com>]
   
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@
  * \date    2019/06/07
  * \author  yazilimperver
  * \brief   
- * Copyright © 2018, Check Bottom For Copyright Notice <yazilimpervergs@gmail.com>
+ * Copyright © 2019, Check Bottom For Copyright Notice <yazilimpervergs@gmail.com>
  */
 #ifndef COMMONMESSAGE_H__
 #define COMMONMESSAGE_H__
@@ -13,7 +13,6 @@
 
  // Message Structure :
  // MsgStart <1 Byte> | Direction <1 Bytes> | MsgID <1 Bytes> | MsgLength <1 Bytes> | MsgContent | MsgEnd <4 Bytes>
-
 struct CommonMessage
 {
 	unsigned char mMsgStart{ cExpectedMsgStart };
@@ -26,7 +25,7 @@ struct CommonMessage
 #endif // COMMONMESSAGE_H__
 
 /*
-  Copyright (c) [2018] [Yazilimperver <yazilimpervergs@gmail.com>]
+  Copyright (c) [2019][Yazilimperver <yazilimpervergs@gmail.com>]
   
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal

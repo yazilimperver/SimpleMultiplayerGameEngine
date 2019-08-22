@@ -1,0 +1,160 @@
+\hypertarget{class_communication_parameters}{}\doxysection{Communication\+Parameters Class Reference}
+\label{class_communication_parameters}\index{CommunicationParameters@{CommunicationParameters}}
+
+
+This class is responsible for holding communication medium parameters.  
+
+
+
+
+{\ttfamily \#include $<$Communication\+Parameters.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_communication_parameters_a9c114cba0030c8f431a1c4e4c9b5094c}{print\+Current\+Parameters}} ()
+\begin{DoxyCompactList}\small\item\em Print currently registered parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_communication_parameters_a0a1eeb554917499fb9595ffa8caada0a}{update\+Parameter\+Value}} (const std\+::string \&param\+Name, const std\+::any \&param\+Value)
+\begin{DoxyCompactList}\small\item\em This method update existing parameter value and add given parameter if not exist. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_communication_parameters_ade29cad4e281578025b60e41a1b9f4a2}{has\+Parameter}} (const std\+::string \&param\+Name)
+\begin{DoxyCompactList}\small\item\em This method check if current mapping contains given parameter name. \end{DoxyCompactList}\item 
+std\+::optional$<$ std\+::any $>$ \mbox{\hyperlink{class_communication_parameters_a245d630d2b770712bc45bb2ee54b8bc4}{get\+Parameter\+Value}} (const std\+::string \&param\+Name)
+\begin{DoxyCompactList}\small\item\em Obtain parameter value with respect to given fi\+Parametereld name. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{class_communication_parameters_a2c0c2843d15b699bb4634017833e4de1}{get\+Parameter\+Value}} (const std\+::string \&param\+Name, T \&param\+Value)
+\begin{DoxyCompactList}\small\item\em The template version of get\+Parameter\+Value which returns the requested value as parameter to prevent any cast. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::any $>$ \mbox{\hyperlink{class_communication_parameters_a8a7060193336da4c4313fd6b4a0ab3c1}{m\+Parameters}}
+\begin{DoxyCompactList}\small\item\em Each parameter will be registered via a Parameter name in string as they will not affect the runtime performance Each communication medium is responsible for specific parameter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is responsible for holding communication medium parameters. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_communication_parameters_a245d630d2b770712bc45bb2ee54b8bc4}\label{class_communication_parameters_a245d630d2b770712bc45bb2ee54b8bc4}} 
+\index{CommunicationParameters@{CommunicationParameters}!getParameterValue@{getParameterValue}}
+\index{getParameterValue@{getParameterValue}!CommunicationParameters@{CommunicationParameters}}
+\doxysubsubsection{\texorpdfstring{getParameterValue()}{getParameterValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::optional$<$ std\+::any $>$ Communication\+Parameters\+::get\+Parameter\+Value (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{param\+Name }\end{DoxyParamCaption})}
+
+
+
+Obtain parameter value with respect to given fi\+Parametereld name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em param\+Name} & Parameter Name.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of parameter if exist o.\+w. no value is returned! 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_communication_parameters_a2c0c2843d15b699bb4634017833e4de1}\label{class_communication_parameters_a2c0c2843d15b699bb4634017833e4de1}} 
+\index{CommunicationParameters@{CommunicationParameters}!getParameterValue@{getParameterValue}}
+\index{getParameterValue@{getParameterValue}!CommunicationParameters@{CommunicationParameters}}
+\doxysubsubsection{\texorpdfstring{getParameterValue()}{getParameterValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool Communication\+Parameters\+::get\+Parameter\+Value (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{param\+Name,  }\item[{T \&}]{param\+Value }\end{DoxyParamCaption})}
+
+
+
+The template version of get\+Parameter\+Value which returns the requested value as parameter to prevent any cast. 
+
+Gets parameter value.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Generic type parameter. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em param\+Name} & Parameter Name. \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em param\+Value} & Parameter Value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if parameter is found, o.\+w. false.
+\end{DoxyReturn}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Generic type parameter. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em param\+Name} & Name of the parameter. \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em param\+Value} & The parameter value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if it succeeds, false if it fails. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_communication_parameters_ade29cad4e281578025b60e41a1b9f4a2}\label{class_communication_parameters_ade29cad4e281578025b60e41a1b9f4a2}} 
+\index{CommunicationParameters@{CommunicationParameters}!hasParameter@{hasParameter}}
+\index{hasParameter@{hasParameter}!CommunicationParameters@{CommunicationParameters}}
+\doxysubsubsection{\texorpdfstring{hasParameter()}{hasParameter()}}
+{\footnotesize\ttfamily bool Communication\+Parameters\+::has\+Parameter (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{param\+Name }\end{DoxyParamCaption})}
+
+
+
+This method check if current mapping contains given parameter name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em param\+Name} & The parameter that we will check.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it exist, false o.\+w. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_communication_parameters_a9c114cba0030c8f431a1c4e4c9b5094c}\label{class_communication_parameters_a9c114cba0030c8f431a1c4e4c9b5094c}} 
+\index{CommunicationParameters@{CommunicationParameters}!printCurrentParameters@{printCurrentParameters}}
+\index{printCurrentParameters@{printCurrentParameters}!CommunicationParameters@{CommunicationParameters}}
+\doxysubsubsection{\texorpdfstring{printCurrentParameters()}{printCurrentParameters()}}
+{\footnotesize\ttfamily void Communication\+Parameters\+::print\+Current\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Print currently registered parameters. 
+
+\mbox{\Hypertarget{class_communication_parameters_a0a1eeb554917499fb9595ffa8caada0a}\label{class_communication_parameters_a0a1eeb554917499fb9595ffa8caada0a}} 
+\index{CommunicationParameters@{CommunicationParameters}!updateParameterValue@{updateParameterValue}}
+\index{updateParameterValue@{updateParameterValue}!CommunicationParameters@{CommunicationParameters}}
+\doxysubsubsection{\texorpdfstring{updateParameterValue()}{updateParameterValue()}}
+{\footnotesize\ttfamily void Communication\+Parameters\+::update\+Parameter\+Value (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{param\+Name,  }\item[{const std\+::any \&}]{param\+Value }\end{DoxyParamCaption})}
+
+
+
+This method update existing parameter value and add given parameter if not exist. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em param\+Name} & Parameter Name. \\
+\hline
+{\em param\+Value} & Parameter Value. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_communication_parameters_a8a7060193336da4c4313fd6b4a0ab3c1}\label{class_communication_parameters_a8a7060193336da4c4313fd6b4a0ab3c1}} 
+\index{CommunicationParameters@{CommunicationParameters}!mParameters@{mParameters}}
+\index{mParameters@{mParameters}!CommunicationParameters@{CommunicationParameters}}
+\doxysubsubsection{\texorpdfstring{mParameters}{mParameters}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$std\+::string, std\+::any$>$ Communication\+Parameters\+::m\+Parameters\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Each parameter will be registered via a Parameter name in string as they will not affect the runtime performance Each communication medium is responsible for specific parameter. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Network\+Library/\mbox{\hyperlink{_communication_parameters_8h}{Communication\+Parameters.\+h}}\item 
+Network\+Library/\mbox{\hyperlink{_communication_parameters_8cpp}{Communication\+Parameters.\+cpp}}\end{DoxyCompactItemize}

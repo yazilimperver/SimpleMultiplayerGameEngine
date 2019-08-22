@@ -3,107 +3,166 @@
  * \date    2019/06/08
  * \author  yazilimperver
  * \brief   
- * Copyright © 2018, Check Bottom For Copyright Notice <yazilimpervergs@gmail.com>
+ * Copyright © 2019, Check Bottom For Copyright Notice <yazilimpervergs@gmail.com>
  */
 #ifndef ICLIENTMEDIUM_H__
 #define ICLIENTMEDIUM_H__
 
 
 #include <QObject>
-#include <BasicTypes.h>
-#include <PropertyItem.h>
+#include "BasicTypes.h"
+#include "PropertyItem.h"
 
+/*! @brief	A communication parameters. */
 class CommunicationParameters;
 
+/*! @brief	A client medium base class. 
+		    The name of parameters that can be used for client mediums 
+			The host address and port are must 
+			If no local port is provided, the currently available port is used this
+			purpose. This port then can be queried via assigned port */
 class IClientMedium
 {
 public:
-	/// <summary>
-	/// The name of parameters that can be used for client mediums
-	/// The host address and port are must
-	/// If no local port is provided, the currently available port is used this purpose
-	/// This port then can be queried via assigned port
-	/// </summary>
+	/*!
+	 /*! @brief	The parameter host address */
 	const std::string cParameter_HostAddress{ "HostAddress" };
+	/*! @brief	The parameter host port */
 	const std::string cParameter_HostPort{ "HostPort" };
+	/*! @brief	The parameter local address */
 	const std::string cParameter_LocalAddress{ "LocalAddress" };
+	/*! @brief	The parameter local port */
 	const std::string cParameter_LocalPort{ "LocalPort" };
+	/*! @brief	The parameter assigned local port */
 	const std::string cParameter_AssignedLocalPort{ "LocalPort" };
+	/*! @brief	The parameter peer port */
 	const std::string cParameter_PeerPort{ "PeerPort" };
+	/*! @brief	The parameter peer address */
 	const std::string cParameter_PeerAddress{ "PeerAddress" };
+	/*! @brief	Name of the parameter peer */
 	const std::string cParameter_PeerName{ "PeerName" };
 
-	/// <summary>
-	/// Each communication medium configuration parameters should be passed via this API.
-	/// The list of parameters are dictated/known by communication medium itself
-	/// </summary>
-	/// <param name="parameters">The parameter mapping (name/value)</param>
+	/*!
+	 * @brief	Each communication medium configuration parameters should be passed via this API. The
+	 * 			list of parameters are dictated/known by communication medium itself
+	 *
+	 * @param	parameters	The parameter mapping (name/value)
+	 */
 	virtual void assignParameters(const CommunicationParameters& parameters) = 0;
 
-	/// <summary>
-	/// Perform initialization activities required for given medium (bind etc for sockets)
-	/// </summary>
-	/// <returns>The result of initialization</returns>
+	/*!
+	 * @brief	Perform initialization activities required for given medium (bind etc for sockets)
+	 *
+	 * @returns	The result of initialization.
+	 */
 	virtual bool initialize() = 0;
 
-	/// <summary>
-	/// Perform destruction and close activities required for given medium
-	/// </summary>
+	/*! @brief	Perform destruction and close activities required for given medium */
 	virtual void finalize() = 0;
 
-	/// <summary>
-	/// Is communication medium initialized properly
-	/// </summary>
-	/// <returns>Initialization status</returns>
+	/*!
+	 * @brief	Is communication medium initialized properly
+	 *
+	 * @returns	Initialization status.
+	 */
 	virtual bool isInitialized() = 0;
 
-	/// <summary>
-	/// Is communication medium ready for communication
-	/// </summary>
-	/// <returns>true => can be used for that purpose, false => not ready </returns>
+	/*!
+	 * @brief	Is communication medium ready for communication
+	 *
+	 * @returns	true => can be used for that purpose, false => not ready.
+	 */
 	virtual bool isActive() = 0;
 
-	/// <summary>
-	/// Data APIs
-	/// </summary>
+	/*!
+	 * @brief	Data APIs
+	 *
+	 * @returns	An uInt64.
+	 */
+	virtual uInt64 availableDataSize() = 0;
+	/*!
+	 * @brief	Reads a data
+	 *
+	 * @param 		  	maxByteCount	Number of maximum bytes.
+	 * @param [in,out]	data			If non-null, the data.
+	 *
+	 * @returns	The data.
+	 */
 	virtual uInt64 readData(uInt64 maxByteCount, uByte* data) = 0;
+	/*!
+	 * @brief	Reads a data
+	 *
+	 * @param	maxByteCount	Number of maximum bytes.
+	 *
+	 * @returns	The data.
+	 */
+	virtual QByteArray readData(uInt64 maxByteCount) = 0;
+	/*!
+	 * @brief	Writes a data
+	 *
+	 * @param	data   	The data.
+	 * @param	maxSize	The maximum size of the.
+	 *
+	 * @returns	An uInt64.
+	 */
 	virtual uInt64 writeData(const uByte* data, uInt64 maxSize) = 0;
+	/*!
+	 * @brief	Writes a data
+	 *
+	 * @param	data	The data.
+	 *
+	 * @returns	An uInt64.
+	 */
+	virtual uInt64 writeData(const QByteArray& data) = 0;
+	/*!
+	 * @brief	Writes a data
+	 *
+	 * @param	data	The data.
+	 *
+	 * @returns	An uInt64.
+	 */
 	virtual uInt64 writeData(const uChar* data) = 0;
 
-	/// <summary>
-	/// Client specific APIs
-	/// </summary>
+	/*! @brief	Client specific APIs */
 	virtual void connect() = 0;
+	/*! @brief	Disconnects this object */
 	virtual void disconnect() = 0;
+	/*!
+	 * @brief	Query if this object is connected
+	 *
+	 * @returns	True if connected, false if not.
+	 */
 	virtual bool isConnected() = 0;
+	/*!
+	 * @brief	Gets peer information
+	 *
+	 * @param [in,out]	peerInfo	Information describing the peer.
+	 */
 	virtual void getPeerInformation(std::vector<PropertyItem>& peerInfo) = 0;
 
+/*! @brief	Connected this object */
 signals:
-	/// <summary>
-	/// The signal is emitted when current client is connected
-	/// </summary>
+	/*! @brief	The signal is emitted when current client is connected */
 	void connected();
 
-	/// <summary>
-	/// The signal is emitted when current client is disconnected
-	/// </summary>
+	/*! @brief	The signal is emitted when current client is disconnected */
 	void disconnected();
 
-	/// <summary>
-	/// The signal is emitted when any kind of error is occurred
-	/// </summary>
-	/// <param name="errorCode">The occurred error code</param>
+	/*!
+	 * @brief	The signal is emitted when any kind of error is occurred
+	 *
+	 * @param	errorCode	The occurred error code.
+	 */
 	void errorOccurred(int errorCode);
 
-	/// <summary>
-	/// When writing/sending data is completed
-	/// </summary>
-	/// <param name="dataSize">The size of written data</param>
+	/*!
+	 * @brief	When writing/sending data is completed
+	 *
+	 * @param	dataSize	The size of written data.
+	 */
 	void dataWritten(uUInt64 dataSize);
 
-	/// <summary>
-	/// There is data that need to be processed
-	/// </summary>
+	/*! @brief	There is data that need to be processed */
 	void dataReadyToRead();
 };
 
@@ -111,7 +170,7 @@ signals:
 #endif // ICLIENTMEDIUM_H__
 
 /*
-  Copyright (c) [2018] [Yazilimperver <yazilimpervergs@gmail.com>]
+  Copyright (c) [2019][Yazilimperver <yazilimpervergs@gmail.com>]
   
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal

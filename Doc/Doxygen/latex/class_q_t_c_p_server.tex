@@ -1,0 +1,460 @@
+\hypertarget{class_q_t_c_p_server}{}\doxysection{Q\+T\+C\+P\+Server Class Reference}
+\label{class_q_t_c_p_server}\index{QTCPServer@{QTCPServer}}
+
+
+{\ttfamily \#include $<$Q\+T\+C\+P\+Server.\+h$>$}
+
+Inheritance diagram for Q\+T\+C\+P\+Server\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_q_t_c_p_server}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_q_t_c_p_server_a3f82af7d4534e3ac5a07779081c7f33b}{new\+Client\+Connected}} (\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} client\+Id)
+\begin{DoxyCompactList}\small\item\em The signal is emitted when a new client is connected \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_q_t_c_p_server_a5bb9695d0930fca1ae8bb5f45480fa5e}{client\+Disconnected}} (\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} client\+Id)
+\begin{DoxyCompactList}\small\item\em The signal is emitted when a connected client is disconnected \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_q_t_c_p_server_a7d43dea671fc4ce1ffd4bde7505542eb}{client\+Data\+Ready\+To\+Read}} (\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} client\+Id)
+\begin{DoxyCompactList}\small\item\em There is data that need to be processed for given client \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_q_t_c_p_server_a0f9cfd1240332d75d617fb560dcf4704}{client\+Error\+Occurred}} (\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} client\+Id, int error\+Code)
+\begin{DoxyCompactList}\small\item\em The signal is emitted when any kind of error is occurred for given client \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_q_t_c_p_server_a06e1a575baebc0bd2b3565832f5a8da4}{error\+Occurred}} (int error\+Code)
+\begin{DoxyCompactList}\small\item\em The signal is emitted when server associated error is occurred \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_t_c_p_server_a9ba28ece500a082370258f48cd5f2529}{Q\+T\+C\+P\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for T\+CP server \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_q_t_c_p_server_aa74ed0d7df28e480ee22f145aea12b30}{assign\+Parameters}} (const \mbox{\hyperlink{class_communication_parameters}{Communication\+Parameters}} \&parameters) override
+\begin{DoxyCompactList}\small\item\em Each communication medium configuration parameters should be passed via this A\+PI. The list of parameters are dictated/known by communication medium itself \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_q_t_c_p_server_a32a585788231b71cde430fe1ab808762}{initialize}} () override
+\begin{DoxyCompactList}\small\item\em Perform initialization activities required for given medium (bind etc for sockets) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_q_t_c_p_server_a7fd6c8bac7ec8d09031ee69f92fd160e}{finalize}} () override
+\begin{DoxyCompactList}\small\item\em Perform destruction and close activities required for given medium \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_q_t_c_p_server_ae33c78794d715318ead35eed5e12c31f}{is\+Initialized}} () override
+\begin{DoxyCompactList}\small\item\em Is communication medium initialized properly \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_q_t_c_p_server_adf5ed8ff6dd3764ca7c4839e23a356c4}{start\+Listening}} () override
+\begin{DoxyCompactList}\small\item\em Server specific A\+P\+Is \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_q_t_c_p_server_aa45effd371b0f2ac0b86b9f77929c505}{stop\+Listening}} () override
+\item 
+virtual bool \mbox{\hyperlink{class_q_t_c_p_server_a074248801f8612fc1a1d39a44c9e963e}{is\+Listening}} () override
+\begin{DoxyCompactList}\small\item\em Is communication medium listening given the port \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_q_t_c_p_server_ab9dbcff6a4b337e5e8bda614a775bdca}{disconnect\+Client}} (\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}} client\+Id) override
+\begin{DoxyCompactList}\small\item\em Disconnect given client. The client will also removed from our connected list \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_q_t_c_p_server_ac1b2440266344d22d8c3b4e3b1bccfa9}{is\+Connected}} (\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}} client\+Id) override
+\begin{DoxyCompactList}\small\item\em Check if provided client is connected \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_q_t_c_p_server_a761dd1329752d48ad2371b1110bc14ee}{get\+Client\+Information}} (\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}} client\+Id, std\+::vector$<$ \mbox{\hyperlink{struct_property_item}{Property\+Item}} $>$ \&client\+Info) override
+\begin{DoxyCompactList}\small\item\em Obtain corresponding client information \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_i_connected_client}{I\+Connected\+Client}} $\ast$ \mbox{\hyperlink{class_q_t_c_p_server_a9c84d7dfa2122645093c0e2c77d2d4b2}{get\+Connected\+Client\+Interface}} (\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}} client\+Id) override
+\begin{DoxyCompactList}\small\item\em Obtain an interface for connected client that identified with given id \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_q_t_c_p_server_abf8b7a1403caa5746b8dcc580459c989}{get\+Connected\+Client\+List}} (std\+::vector$<$ \mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}} $>$ \&client\+Id\+List) override
+\begin{DoxyCompactList}\small\item\em Obtain list of connected client unique ids \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_q_t_c_p_server_a5050b6e0054eb067400cf0bdf5c09666}{m\+Is\+Initialized}} \{ false \}
+\begin{DoxyCompactList}\small\item\em Initialization status \end{DoxyCompactList}\item 
+Q\+Tcp\+Server \mbox{\hyperlink{class_q_t_c_p_server_a485a0c20d1c429b469a7993918bd4069}{m\+T\+C\+P\+Server}}
+\begin{DoxyCompactList}\small\item\em The T\+CP server socket \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_communication_parameters}{Communication\+Parameters}} \mbox{\hyperlink{class_q_t_c_p_server_a02f55be4080d66e4a9a365019584f56d}{m\+Parameters}}
+\begin{DoxyCompactList}\small\item\em The parameters that will be used for socket creation/bind and connection to target host \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_q_t_c_p_server_acf73b86fc624f897962ccde4675fbb18}{m\+Listening\+Port}} \{ 0 \}
+\begin{DoxyCompactList}\small\item\em The server parameters \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_q_t_c_p_server_a75b3088b8f021cc2dd1dd087107b0be7}{m\+Local\+Address}} \{ \char`\"{}127.\+0.\+0.\+1\char`\"{} \}
+\item 
+\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} \mbox{\hyperlink{class_q_t_c_p_server_a30071855e8c237b60f7b6be53ca6848c}{m\+Client\+Seed\+Id}} \{ 0 \}
+\begin{DoxyCompactList}\small\item\em The id that will be used for uniquely identifying clients \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ Q\+Tcp\+Socket $\ast$, \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} $>$ \mbox{\hyperlink{class_q_t_c_p_server_a2c26865aefddc75d80b20f9fcb782d26}{m\+Client\+Id\+Mapping}}
+\begin{DoxyCompactList}\small\item\em Each client is keyed with address of corresponding client as well as unique id \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}}, \mbox{\hyperlink{class_q_t_connected_client}{Q\+T\+Connected\+Client}} $\ast$ $>$ \mbox{\hyperlink{class_q_t_c_p_server_a01c2f7bb39868b7a30fbae61f35cf973}{m\+Client\+Mapping}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_q_t_c_p_server_a9ba28ece500a082370258f48cd5f2529}\label{class_q_t_c_p_server_a9ba28ece500a082370258f48cd5f2529}} 
+\index{QTCPServer@{QTCPServer}!QTCPServer@{QTCPServer}}
+\index{QTCPServer@{QTCPServer}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{QTCPServer()}{QTCPServer()}}
+{\footnotesize\ttfamily Q\+T\+C\+P\+Server\+::\+Q\+T\+C\+P\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for T\+CP server 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_q_t_c_p_server_aa74ed0d7df28e480ee22f145aea12b30}\label{class_q_t_c_p_server_aa74ed0d7df28e480ee22f145aea12b30}} 
+\index{QTCPServer@{QTCPServer}!assignParameters@{assignParameters}}
+\index{assignParameters@{assignParameters}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{assignParameters()}{assignParameters()}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Server\+::assign\+Parameters (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_communication_parameters}{Communication\+Parameters}} \&}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Each communication medium configuration parameters should be passed via this A\+PI. The list of parameters are dictated/known by communication medium itself 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameters} & The parameter mapping (name/value)\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_server_medium_a48d77211d273b58d731794bf60431574}{I\+Server\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_server_a7d43dea671fc4ce1ffd4bde7505542eb}\label{class_q_t_c_p_server_a7d43dea671fc4ce1ffd4bde7505542eb}} 
+\index{QTCPServer@{QTCPServer}!clientDataReadyToRead@{clientDataReadyToRead}}
+\index{clientDataReadyToRead@{clientDataReadyToRead}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{clientDataReadyToRead}{clientDataReadyToRead}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Server\+::client\+Data\+Ready\+To\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}}}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+There is data that need to be processed for given client 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The unique id of client\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_q_t_c_p_server_a5bb9695d0930fca1ae8bb5f45480fa5e}\label{class_q_t_c_p_server_a5bb9695d0930fca1ae8bb5f45480fa5e}} 
+\index{QTCPServer@{QTCPServer}!clientDisconnected@{clientDisconnected}}
+\index{clientDisconnected@{clientDisconnected}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{clientDisconnected}{clientDisconnected}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Server\+::client\+Disconnected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}}}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The signal is emitted when a connected client is disconnected 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The unique id of client\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_q_t_c_p_server_a0f9cfd1240332d75d617fb560dcf4704}\label{class_q_t_c_p_server_a0f9cfd1240332d75d617fb560dcf4704}} 
+\index{QTCPServer@{QTCPServer}!clientErrorOccurred@{clientErrorOccurred}}
+\index{clientErrorOccurred@{clientErrorOccurred}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{clientErrorOccurred}{clientErrorOccurred}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Server\+::client\+Error\+Occurred (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}}}]{client\+Id,  }\item[{int}]{error\+Code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The signal is emitted when any kind of error is occurred for given client 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The unique id of client\\
+\hline
+{\em error\+Code} & The occurred error code\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_q_t_c_p_server_ab9dbcff6a4b337e5e8bda614a775bdca}\label{class_q_t_c_p_server_ab9dbcff6a4b337e5e8bda614a775bdca}} 
+\index{QTCPServer@{QTCPServer}!disconnectClient@{disconnectClient}}
+\index{disconnectClient@{disconnectClient}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{disconnectClient()}{disconnectClient()}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Server\+::disconnect\+Client (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}}}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Disconnect given client. The client will also removed from our connected list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The unique id of client\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_server_medium_adf4282cddb8b2a0604a2a5c00a050f64}{I\+Server\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_server_a06e1a575baebc0bd2b3565832f5a8da4}\label{class_q_t_c_p_server_a06e1a575baebc0bd2b3565832f5a8da4}} 
+\index{QTCPServer@{QTCPServer}!errorOccurred@{errorOccurred}}
+\index{errorOccurred@{errorOccurred}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{errorOccurred}{errorOccurred}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Server\+::error\+Occurred (\begin{DoxyParamCaption}\item[{int}]{error\+Code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The signal is emitted when server associated error is occurred 
+
+
+\begin{DoxyParams}{Parameters}
+{\em error\+Code} & The occurred error code\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_q_t_c_p_server_a7fd6c8bac7ec8d09031ee69f92fd160e}\label{class_q_t_c_p_server_a7fd6c8bac7ec8d09031ee69f92fd160e}} 
+\index{QTCPServer@{QTCPServer}!finalize@{finalize}}
+\index{finalize@{finalize}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{finalize()}{finalize()}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Server\+::finalize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Perform destruction and close activities required for given medium 
+
+
+
+Implements \mbox{\hyperlink{class_i_server_medium_a651fb9e7bff10ac6fac57c4c93f153bc}{I\+Server\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_server_a761dd1329752d48ad2371b1110bc14ee}\label{class_q_t_c_p_server_a761dd1329752d48ad2371b1110bc14ee}} 
+\index{QTCPServer@{QTCPServer}!getClientInformation@{getClientInformation}}
+\index{getClientInformation@{getClientInformation}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{getClientInformation()}{getClientInformation()}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Server\+::get\+Client\+Information (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}}}]{client\+Id,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_property_item}{Property\+Item}} $>$ \&}]{client\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obtain corresponding client information 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The unique id of client\\
+\hline
+{\em client\+Info} & The client information\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_server_medium_a528f251709d6d5d8f5ee753d6051c5c2}{I\+Server\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_server_a9c84d7dfa2122645093c0e2c77d2d4b2}\label{class_q_t_c_p_server_a9c84d7dfa2122645093c0e2c77d2d4b2}} 
+\index{QTCPServer@{QTCPServer}!getConnectedClientInterface@{getConnectedClientInterface}}
+\index{getConnectedClientInterface@{getConnectedClientInterface}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{getConnectedClientInterface()}{getConnectedClientInterface()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_connected_client}{I\+Connected\+Client}} $\ast$ Q\+T\+C\+P\+Server\+::get\+Connected\+Client\+Interface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}}}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obtain an interface for connected client that identified with given id 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The unique id of client\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The interface for given connected client
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_server_medium_aebd741ba14bdaf1b7c938918b8b9821e}{I\+Server\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_server_abf8b7a1403caa5746b8dcc580459c989}\label{class_q_t_c_p_server_abf8b7a1403caa5746b8dcc580459c989}} 
+\index{QTCPServer@{QTCPServer}!getConnectedClientList@{getConnectedClientList}}
+\index{getConnectedClientList@{getConnectedClientList}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{getConnectedClientList()}{getConnectedClientList()}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Server\+::get\+Connected\+Client\+List (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}} $>$ \&}]{client\+Id\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obtain list of connected client unique ids 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id\+List} & The list of unique ids\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_server_medium_a0f674a2759bf495a47316d71824fc15f}{I\+Server\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_server_a32a585788231b71cde430fe1ab808762}\label{class_q_t_c_p_server_a32a585788231b71cde430fe1ab808762}} 
+\index{QTCPServer@{QTCPServer}!initialize@{initialize}}
+\index{initialize@{initialize}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily bool Q\+T\+C\+P\+Server\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Perform initialization activities required for given medium (bind etc for sockets) 
+
+\begin{DoxyReturn}{Returns}
+The result of initialization
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_server_medium_a0759c7d0e5b8f7e06ffa86873459210d}{I\+Server\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_server_ac1b2440266344d22d8c3b4e3b1bccfa9}\label{class_q_t_c_p_server_ac1b2440266344d22d8c3b4e3b1bccfa9}} 
+\index{QTCPServer@{QTCPServer}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{isConnected()}{isConnected()}}
+{\footnotesize\ttfamily bool Q\+T\+C\+P\+Server\+::is\+Connected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}}}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Check if provided client is connected 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The unique id of client\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Connection status
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_server_medium_a172996301a74ca59f567f2852478689b}{I\+Server\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_server_ae33c78794d715318ead35eed5e12c31f}\label{class_q_t_c_p_server_ae33c78794d715318ead35eed5e12c31f}} 
+\index{QTCPServer@{QTCPServer}!isInitialized@{isInitialized}}
+\index{isInitialized@{isInitialized}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{isInitialized()}{isInitialized()}}
+{\footnotesize\ttfamily bool Q\+T\+C\+P\+Server\+::is\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Is communication medium initialized properly 
+
+\begin{DoxyReturn}{Returns}
+Initialization status
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_server_medium_acf9fe86dded3078034396d11eeb0f4e4}{I\+Server\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_server_a074248801f8612fc1a1d39a44c9e963e}\label{class_q_t_c_p_server_a074248801f8612fc1a1d39a44c9e963e}} 
+\index{QTCPServer@{QTCPServer}!isListening@{isListening}}
+\index{isListening@{isListening}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{isListening()}{isListening()}}
+{\footnotesize\ttfamily bool Q\+T\+C\+P\+Server\+::is\+Listening (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Is communication medium listening given the port 
+
+\begin{DoxyReturn}{Returns}
+true =$>$ can be used for that purpose, false =$>$ not ready 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_server_medium_ac85a6e492a26ad15dddc33ca369ca4fd}{I\+Server\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_server_a3f82af7d4534e3ac5a07779081c7f33b}\label{class_q_t_c_p_server_a3f82af7d4534e3ac5a07779081c7f33b}} 
+\index{QTCPServer@{QTCPServer}!newClientConnected@{newClientConnected}}
+\index{newClientConnected@{newClientConnected}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{newClientConnected}{newClientConnected}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Server\+::new\+Client\+Connected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}}}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The signal is emitted when a new client is connected 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The unique id of client\\
+\hline
+\end{DoxyParams}
+~\newline
+ \mbox{\Hypertarget{class_q_t_c_p_server_adf5ed8ff6dd3764ca7c4839e23a356c4}\label{class_q_t_c_p_server_adf5ed8ff6dd3764ca7c4839e23a356c4}} 
+\index{QTCPServer@{QTCPServer}!startListening@{startListening}}
+\index{startListening@{startListening}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{startListening()}{startListening()}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Server\+::start\+Listening (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Server specific A\+P\+Is 
+
+
+
+Implements \mbox{\hyperlink{class_i_server_medium_a287e8e25d3ddf28d03873cf838049bd0}{I\+Server\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_server_aa45effd371b0f2ac0b86b9f77929c505}\label{class_q_t_c_p_server_aa45effd371b0f2ac0b86b9f77929c505}} 
+\index{QTCPServer@{QTCPServer}!stopListening@{stopListening}}
+\index{stopListening@{stopListening}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{stopListening()}{stopListening()}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Server\+::stop\+Listening (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_server_medium_a36a9146c489b6aeb76012b0c2c996252}{I\+Server\+Medium}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_q_t_c_p_server_a2c26865aefddc75d80b20f9fcb782d26}\label{class_q_t_c_p_server_a2c26865aefddc75d80b20f9fcb782d26}} 
+\index{QTCPServer@{QTCPServer}!mClientIdMapping@{mClientIdMapping}}
+\index{mClientIdMapping@{mClientIdMapping}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{mClientIdMapping}{mClientIdMapping}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$Q\+Tcp\+Socket$\ast$, \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}}$>$ Q\+T\+C\+P\+Server\+::m\+Client\+Id\+Mapping\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Each client is keyed with address of corresponding client as well as unique id 
+
+\mbox{\Hypertarget{class_q_t_c_p_server_a01c2f7bb39868b7a30fbae61f35cf973}\label{class_q_t_c_p_server_a01c2f7bb39868b7a30fbae61f35cf973}} 
+\index{QTCPServer@{QTCPServer}!mClientMapping@{mClientMapping}}
+\index{mClientMapping@{mClientMapping}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{mClientMapping}{mClientMapping}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}}, \mbox{\hyperlink{class_q_t_connected_client}{Q\+T\+Connected\+Client}}$\ast$$>$ Q\+T\+C\+P\+Server\+::m\+Client\+Mapping\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_q_t_c_p_server_a30071855e8c237b60f7b6be53ca6848c}\label{class_q_t_c_p_server_a30071855e8c237b60f7b6be53ca6848c}} 
+\index{QTCPServer@{QTCPServer}!mClientSeedId@{mClientSeedId}}
+\index{mClientSeedId@{mClientSeedId}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{mClientSeedId}{mClientSeedId}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} Q\+T\+C\+P\+Server\+::m\+Client\+Seed\+Id \{ 0 \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The id that will be used for uniquely identifying clients 
+
+\mbox{\Hypertarget{class_q_t_c_p_server_a5050b6e0054eb067400cf0bdf5c09666}\label{class_q_t_c_p_server_a5050b6e0054eb067400cf0bdf5c09666}} 
+\index{QTCPServer@{QTCPServer}!mIsInitialized@{mIsInitialized}}
+\index{mIsInitialized@{mIsInitialized}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{mIsInitialized}{mIsInitialized}}
+{\footnotesize\ttfamily bool Q\+T\+C\+P\+Server\+::m\+Is\+Initialized \{ false \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Initialization status 
+
+\mbox{\Hypertarget{class_q_t_c_p_server_acf73b86fc624f897962ccde4675fbb18}\label{class_q_t_c_p_server_acf73b86fc624f897962ccde4675fbb18}} 
+\index{QTCPServer@{QTCPServer}!mListeningPort@{mListeningPort}}
+\index{mListeningPort@{mListeningPort}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{mListeningPort}{mListeningPort}}
+{\footnotesize\ttfamily int Q\+T\+C\+P\+Server\+::m\+Listening\+Port \{ 0 \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The server parameters 
+
+\mbox{\Hypertarget{class_q_t_c_p_server_a75b3088b8f021cc2dd1dd087107b0be7}\label{class_q_t_c_p_server_a75b3088b8f021cc2dd1dd087107b0be7}} 
+\index{QTCPServer@{QTCPServer}!mLocalAddress@{mLocalAddress}}
+\index{mLocalAddress@{mLocalAddress}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{mLocalAddress}{mLocalAddress}}
+{\footnotesize\ttfamily std\+::string Q\+T\+C\+P\+Server\+::m\+Local\+Address \{ \char`\"{}127.\+0.\+0.\+1\char`\"{} \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_q_t_c_p_server_a02f55be4080d66e4a9a365019584f56d}\label{class_q_t_c_p_server_a02f55be4080d66e4a9a365019584f56d}} 
+\index{QTCPServer@{QTCPServer}!mParameters@{mParameters}}
+\index{mParameters@{mParameters}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{mParameters}{mParameters}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_communication_parameters}{Communication\+Parameters}} Q\+T\+C\+P\+Server\+::m\+Parameters\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The parameters that will be used for socket creation/bind and connection to target host 
+
+\mbox{\Hypertarget{class_q_t_c_p_server_a485a0c20d1c429b469a7993918bd4069}\label{class_q_t_c_p_server_a485a0c20d1c429b469a7993918bd4069}} 
+\index{QTCPServer@{QTCPServer}!mTCPServer@{mTCPServer}}
+\index{mTCPServer@{mTCPServer}!QTCPServer@{QTCPServer}}
+\doxysubsubsection{\texorpdfstring{mTCPServer}{mTCPServer}}
+{\footnotesize\ttfamily Q\+Tcp\+Server Q\+T\+C\+P\+Server\+::m\+T\+C\+P\+Server\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The T\+CP server socket 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Network\+Library/\mbox{\hyperlink{_q_t_c_p_server_8h}{Q\+T\+C\+P\+Server.\+h}}\item 
+Network\+Library/\+Generated\+Files/\+Debug/\mbox{\hyperlink{moc___q_t_c_p_server_8cpp}{moc\+\_\+\+Q\+T\+C\+P\+Server.\+cpp}}\item 
+Network\+Library/\mbox{\hyperlink{_q_t_c_p_server_8cpp}{Q\+T\+C\+P\+Server.\+cpp}}\end{DoxyCompactItemize}

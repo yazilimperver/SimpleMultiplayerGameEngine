@@ -1,0 +1,456 @@
+\hypertarget{class_q_t_c_p_client}{}\doxysection{Q\+T\+C\+P\+Client Class Reference}
+\label{class_q_t_c_p_client}\index{QTCPClient@{QTCPClient}}
+
+
+A qtcp client.  
+
+
+
+
+{\ttfamily \#include $<$Q\+T\+C\+P\+Client.\+h$>$}
+
+Inheritance diagram for Q\+T\+C\+P\+Client\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_q_t_c_p_client}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_q_t_c_p_client_af41fe41a40c8f1e5e5e94c013353ebe1}{connected}} ()
+\begin{DoxyCompactList}\small\item\em The signal is emitted when current client is connected. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_q_t_c_p_client_ae6eefc38d2a53e01421c5062d20fdf33}{disconnected}} ()
+\begin{DoxyCompactList}\small\item\em The signal is emitted when current client is disconnected. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_q_t_c_p_client_abac998921ee5d17fded279653eefa103}{socket\+Error\+Occurred}} (int error\+Code)
+\begin{DoxyCompactList}\small\item\em The signal is emitted when any kind of error is occurred. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_q_t_c_p_client_a95d338307f32ecf05db7941c615ad30a}{data\+Ready\+To\+Read}} ()
+\begin{DoxyCompactList}\small\item\em There is data that need to be processed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_t_c_p_client_aa33882cb66728b2e895468081b3e4c0d}{Q\+T\+C\+P\+Client}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for T\+CP client. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_q_t_c_p_client_a2ce798da79c3bd753e07af545450dbd6}{assign\+Parameters}} (const \mbox{\hyperlink{class_communication_parameters}{Communication\+Parameters}} \&parameters) override
+\begin{DoxyCompactList}\small\item\em Each communication medium configuration parameters should be passed via this A\+PI. The list of parameters are dictated/known by communication medium itself. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_q_t_c_p_client_a729a75dc350eda72eca04910cfbd582e}{initialize}} () override
+\begin{DoxyCompactList}\small\item\em Perform initialization activities required for given medium (bind etc for client sockets) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_q_t_c_p_client_a68567f153a7ea88b4d8d97d963480038}{finalize}} () override
+\begin{DoxyCompactList}\small\item\em Perform destruction and close activities required for given medium. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_q_t_c_p_client_a1a492571f557db704aa209ce702f9ade}{is\+Initialized}} () override
+\begin{DoxyCompactList}\small\item\em Is communication medium initialized properly. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_q_t_c_p_client_aeb558d169b4e47bebacb6a4c67d55ceb}{is\+Active}} () override
+\begin{DoxyCompactList}\small\item\em Is communication medium ready for communication. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} \mbox{\hyperlink{class_q_t_c_p_client_a23cfc5e4fdf54b323ffa779bf3f6b622}{read\+Data}} (\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} max\+Byte\+Count, \mbox{\hyperlink{_basic_types_8h_ac84b689f65997690bfaf0c078c16cb04}{u\+Byte}} $\ast$data) override
+\begin{DoxyCompactList}\small\item\em Data A\+P\+Is. \end{DoxyCompactList}\item 
+virtual Q\+Byte\+Array \mbox{\hyperlink{class_q_t_c_p_client_a96da6268efe39039de2399b008b8c058}{read\+Data}} (\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} max\+Byte\+Count) override
+\begin{DoxyCompactList}\small\item\em Reads a data. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} \mbox{\hyperlink{class_q_t_c_p_client_afa4f82261c581cd86e3dc1cb1a3db687}{write\+Data}} (const \mbox{\hyperlink{_basic_types_8h_ac84b689f65997690bfaf0c078c16cb04}{u\+Byte}} $\ast$data, \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} max\+Size) override
+\begin{DoxyCompactList}\small\item\em Writes a data. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} \mbox{\hyperlink{class_q_t_c_p_client_afd7b42b76e1c04f368bb54d4447b4dff}{write\+Data}} (const Q\+Byte\+Array \&data) override
+\begin{DoxyCompactList}\small\item\em Writes a data. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} \mbox{\hyperlink{class_q_t_c_p_client_adc32dee1c61f3614300b72fdf992f3b2}{write\+Data}} (const \mbox{\hyperlink{_basic_types_8h_a4f063b9f3b660792b63b04e906552a21}{u\+Char}} $\ast$data) override
+\begin{DoxyCompactList}\small\item\em Writes a data. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_q_t_c_p_client_ae963b72c81b77ca4a130e053c14917fa}{connect}} () override
+\begin{DoxyCompactList}\small\item\em To connect given destination with respect to provided parameters The medium should be initialized beforehand. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_q_t_c_p_client_a122e1d71f90323181042233c074b0d86}{disconnect}} () override
+\begin{DoxyCompactList}\small\item\em Disconnect from destination. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_q_t_c_p_client_aa7b1e7e557399d885612d4ec6cb156ee}{is\+Connected}} () override
+\begin{DoxyCompactList}\small\item\em Is medium connected. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_q_t_c_p_client_a5c37379ff07be6c2cc57d99ef7c50b74}{get\+Peer\+Information}} (std\+::vector$<$ \mbox{\hyperlink{struct_property_item}{Property\+Item}} $>$ \&peer\+Info) override
+\begin{DoxyCompactList}\small\item\em Returns the information about other end point. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} \mbox{\hyperlink{class_q_t_c_p_client_a2d7cc9ae74c38aee59c710f06e36b7ee}{available\+Data\+Size}} () override
+\begin{DoxyCompactList}\small\item\em Available data size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_q_t_c_p_client_aec5b3c902c67084b48bda1ac9a8a4416}{m\+Is\+Initialized}} \{ false \}
+\begin{DoxyCompactList}\small\item\em Initialization status. \end{DoxyCompactList}\item 
+Q\+Tcp\+Socket \mbox{\hyperlink{class_q_t_c_p_client_aa8ba318fd6d97e06c97da365d9ccd59d}{m\+Tcp\+Socket}}
+\begin{DoxyCompactList}\small\item\em Underlying T\+CP client socket. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_communication_parameters}{Communication\+Parameters}} \mbox{\hyperlink{class_q_t_c_p_client_a2bb68c6a3c82ea4265859a8d6a92a17e}{m\+Parameters}}
+\begin{DoxyCompactList}\small\item\em The parameters that will be used for socket creation/bind and connection to target host Note that QT dynamic properties can also be used for this purpose. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A qtcp client. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_q_t_c_p_client_aa33882cb66728b2e895468081b3e4c0d}\label{class_q_t_c_p_client_aa33882cb66728b2e895468081b3e4c0d}} 
+\index{QTCPClient@{QTCPClient}!QTCPClient@{QTCPClient}}
+\index{QTCPClient@{QTCPClient}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{QTCPClient()}{QTCPClient()}}
+{\footnotesize\ttfamily Q\+T\+C\+P\+Client\+::\+Q\+T\+C\+P\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for T\+CP client. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_q_t_c_p_client_a2ce798da79c3bd753e07af545450dbd6}\label{class_q_t_c_p_client_a2ce798da79c3bd753e07af545450dbd6}} 
+\index{QTCPClient@{QTCPClient}!assignParameters@{assignParameters}}
+\index{assignParameters@{assignParameters}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{assignParameters()}{assignParameters()}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Client\+::assign\+Parameters (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_communication_parameters}{Communication\+Parameters}} \&}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Each communication medium configuration parameters should be passed via this A\+PI. The list of parameters are dictated/known by communication medium itself. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameters} & The parameter mapping (name/value) \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_client_medium_a35ee647f83126e40141d173937194144}{I\+Client\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_client_a2d7cc9ae74c38aee59c710f06e36b7ee}\label{class_q_t_c_p_client_a2d7cc9ae74c38aee59c710f06e36b7ee}} 
+\index{QTCPClient@{QTCPClient}!availableDataSize@{availableDataSize}}
+\index{availableDataSize@{availableDataSize}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{availableDataSize()}{availableDataSize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} Q\+T\+C\+P\+Client\+::available\+Data\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Available data size. 
+
+\begin{DoxyReturn}{Returns}
+An u\+Int64. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_client_medium_af28b5a114d702e44199a6dad01e92e7a}{I\+Client\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_client_ae963b72c81b77ca4a130e053c14917fa}\label{class_q_t_c_p_client_ae963b72c81b77ca4a130e053c14917fa}} 
+\index{QTCPClient@{QTCPClient}!connect@{connect}}
+\index{connect@{connect}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Client\+::connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+To connect given destination with respect to provided parameters The medium should be initialized beforehand. 
+
+
+
+Implements \mbox{\hyperlink{class_i_client_medium_afe36f573c59ed5f5a8d41aba1ba62879}{I\+Client\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_client_af41fe41a40c8f1e5e5e94c013353ebe1}\label{class_q_t_c_p_client_af41fe41a40c8f1e5e5e94c013353ebe1}} 
+\index{QTCPClient@{QTCPClient}!connected@{connected}}
+\index{connected@{connected}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{connected}{connected}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Client\+::connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The signal is emitted when current client is connected. 
+
+\mbox{\Hypertarget{class_q_t_c_p_client_a95d338307f32ecf05db7941c615ad30a}\label{class_q_t_c_p_client_a95d338307f32ecf05db7941c615ad30a}} 
+\index{QTCPClient@{QTCPClient}!dataReadyToRead@{dataReadyToRead}}
+\index{dataReadyToRead@{dataReadyToRead}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{dataReadyToRead}{dataReadyToRead}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Client\+::data\+Ready\+To\+Read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+There is data that need to be processed. 
+
+\mbox{\Hypertarget{class_q_t_c_p_client_a122e1d71f90323181042233c074b0d86}\label{class_q_t_c_p_client_a122e1d71f90323181042233c074b0d86}} 
+\index{QTCPClient@{QTCPClient}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{disconnect()}{disconnect()}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Client\+::disconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Disconnect from destination. 
+
+
+
+Implements \mbox{\hyperlink{class_i_client_medium_af00022505f86d95f232f6f761267b129}{I\+Client\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_client_ae6eefc38d2a53e01421c5062d20fdf33}\label{class_q_t_c_p_client_ae6eefc38d2a53e01421c5062d20fdf33}} 
+\index{QTCPClient@{QTCPClient}!disconnected@{disconnected}}
+\index{disconnected@{disconnected}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{disconnected}{disconnected}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Client\+::disconnected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The signal is emitted when current client is disconnected. 
+
+\mbox{\Hypertarget{class_q_t_c_p_client_a68567f153a7ea88b4d8d97d963480038}\label{class_q_t_c_p_client_a68567f153a7ea88b4d8d97d963480038}} 
+\index{QTCPClient@{QTCPClient}!finalize@{finalize}}
+\index{finalize@{finalize}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{finalize()}{finalize()}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Client\+::finalize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Perform destruction and close activities required for given medium. 
+
+
+
+Implements \mbox{\hyperlink{class_i_client_medium_ae67b4284a1065dd1fddb08ea4d9d2baa}{I\+Client\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_client_a5c37379ff07be6c2cc57d99ef7c50b74}\label{class_q_t_c_p_client_a5c37379ff07be6c2cc57d99ef7c50b74}} 
+\index{QTCPClient@{QTCPClient}!getPeerInformation@{getPeerInformation}}
+\index{getPeerInformation@{getPeerInformation}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{getPeerInformation()}{getPeerInformation()}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Client\+::get\+Peer\+Information (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_property_item}{Property\+Item}} $>$ \&}]{peer\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the information about other end point. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em peer\+Info} & End point information. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_client_medium_af3c69800cfe2ec463fcc7197f3b4bae3}{I\+Client\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_client_a729a75dc350eda72eca04910cfbd582e}\label{class_q_t_c_p_client_a729a75dc350eda72eca04910cfbd582e}} 
+\index{QTCPClient@{QTCPClient}!initialize@{initialize}}
+\index{initialize@{initialize}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily bool Q\+T\+C\+P\+Client\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Perform initialization activities required for given medium (bind etc for client sockets) 
+
+\begin{DoxyReturn}{Returns}
+The result of initialization. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_client_medium_affb95f282aa43ef8460572d415523d96}{I\+Client\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_client_aeb558d169b4e47bebacb6a4c67d55ceb}\label{class_q_t_c_p_client_aeb558d169b4e47bebacb6a4c67d55ceb}} 
+\index{QTCPClient@{QTCPClient}!isActive@{isActive}}
+\index{isActive@{isActive}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{isActive()}{isActive()}}
+{\footnotesize\ttfamily bool Q\+T\+C\+P\+Client\+::is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Is communication medium ready for communication. 
+
+\begin{DoxyReturn}{Returns}
+true =$>$ can be used for that purpose, false =$>$ not ready. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_client_medium_a53e0ee09eb626e53811f87d6f1944d2b}{I\+Client\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_client_aa7b1e7e557399d885612d4ec6cb156ee}\label{class_q_t_c_p_client_aa7b1e7e557399d885612d4ec6cb156ee}} 
+\index{QTCPClient@{QTCPClient}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{isConnected()}{isConnected()}}
+{\footnotesize\ttfamily bool Q\+T\+C\+P\+Client\+::is\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Is medium connected. 
+
+\begin{DoxyReturn}{Returns}
+Connection status. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_client_medium_a76c3a1518a8af8d7dc69b77040cee978}{I\+Client\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_client_a1a492571f557db704aa209ce702f9ade}\label{class_q_t_c_p_client_a1a492571f557db704aa209ce702f9ade}} 
+\index{QTCPClient@{QTCPClient}!isInitialized@{isInitialized}}
+\index{isInitialized@{isInitialized}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{isInitialized()}{isInitialized()}}
+{\footnotesize\ttfamily bool Q\+T\+C\+P\+Client\+::is\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Is communication medium initialized properly. 
+
+\begin{DoxyReturn}{Returns}
+Initialization status. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_client_medium_a4aeeb99201bc9b3259ba5491748b57a4}{I\+Client\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_client_a96da6268efe39039de2399b008b8c058}\label{class_q_t_c_p_client_a96da6268efe39039de2399b008b8c058}} 
+\index{QTCPClient@{QTCPClient}!readData@{readData}}
+\index{readData@{readData}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Q\+Byte\+Array Q\+T\+C\+P\+Client\+::read\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}}}]{max\+Byte\+Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reads a data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+Byte\+Count} & Number of maximum bytes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The data. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_client_medium_a0f3be8db599d7dc47efa70465d34877f}{I\+Client\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_client_a23cfc5e4fdf54b323ffa779bf3f6b622}\label{class_q_t_c_p_client_a23cfc5e4fdf54b323ffa779bf3f6b622}} 
+\index{QTCPClient@{QTCPClient}!readData@{readData}}
+\index{readData@{readData}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} Q\+T\+C\+P\+Client\+::read\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}}}]{max\+Byte\+Count,  }\item[{\mbox{\hyperlink{_basic_types_8h_ac84b689f65997690bfaf0c078c16cb04}{u\+Byte}} $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Data A\+P\+Is. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em max\+Byte\+Count} & Number of maximum bytes. \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em data} & If non-\/null, the data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The data. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_client_medium_a5f2820d22dedac7b2de05f4263b2f82c}{I\+Client\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_client_abac998921ee5d17fded279653eefa103}\label{class_q_t_c_p_client_abac998921ee5d17fded279653eefa103}} 
+\index{QTCPClient@{QTCPClient}!socketErrorOccurred@{socketErrorOccurred}}
+\index{socketErrorOccurred@{socketErrorOccurred}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{socketErrorOccurred}{socketErrorOccurred}}
+{\footnotesize\ttfamily void Q\+T\+C\+P\+Client\+::socket\+Error\+Occurred (\begin{DoxyParamCaption}\item[{int}]{error\+Code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The signal is emitted when any kind of error is occurred. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em error\+Code} & The occurred error. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_q_t_c_p_client_afd7b42b76e1c04f368bb54d4447b4dff}\label{class_q_t_c_p_client_afd7b42b76e1c04f368bb54d4447b4dff}} 
+\index{QTCPClient@{QTCPClient}!writeData@{writeData}}
+\index{writeData@{writeData}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{writeData()}{writeData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} Q\+T\+C\+P\+Client\+::write\+Data (\begin{DoxyParamCaption}\item[{const Q\+Byte\+Array \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Writes a data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An u\+Int64. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_client_medium_ab13bbe2457fbce9d3e135d3dd0a8709d}{I\+Client\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_client_afa4f82261c581cd86e3dc1cb1a3db687}\label{class_q_t_c_p_client_afa4f82261c581cd86e3dc1cb1a3db687}} 
+\index{QTCPClient@{QTCPClient}!writeData@{writeData}}
+\index{writeData@{writeData}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{writeData()}{writeData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} Q\+T\+C\+P\+Client\+::write\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_basic_types_8h_ac84b689f65997690bfaf0c078c16cb04}{u\+Byte}} $\ast$}]{data,  }\item[{\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}}}]{max\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Writes a data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data. \\
+\hline
+{\em max\+Size} & The maximum size of the.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An u\+Int64. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_client_medium_ae3fabec1b8b03496ff8de31b11b8c468}{I\+Client\+Medium}}.
+
+\mbox{\Hypertarget{class_q_t_c_p_client_adc32dee1c61f3614300b72fdf992f3b2}\label{class_q_t_c_p_client_adc32dee1c61f3614300b72fdf992f3b2}} 
+\index{QTCPClient@{QTCPClient}!writeData@{writeData}}
+\index{writeData@{writeData}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{writeData()}{writeData()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} Q\+T\+C\+P\+Client\+::write\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_basic_types_8h_a4f063b9f3b660792b63b04e906552a21}{u\+Char}} $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Writes a data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An u\+Int64. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_client_medium_a310c4f9ee4f1a2140913e7f9869c6774}{I\+Client\+Medium}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_q_t_c_p_client_aec5b3c902c67084b48bda1ac9a8a4416}\label{class_q_t_c_p_client_aec5b3c902c67084b48bda1ac9a8a4416}} 
+\index{QTCPClient@{QTCPClient}!mIsInitialized@{mIsInitialized}}
+\index{mIsInitialized@{mIsInitialized}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{mIsInitialized}{mIsInitialized}}
+{\footnotesize\ttfamily bool Q\+T\+C\+P\+Client\+::m\+Is\+Initialized \{ false \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Initialization status. 
+
+\mbox{\Hypertarget{class_q_t_c_p_client_a2bb68c6a3c82ea4265859a8d6a92a17e}\label{class_q_t_c_p_client_a2bb68c6a3c82ea4265859a8d6a92a17e}} 
+\index{QTCPClient@{QTCPClient}!mParameters@{mParameters}}
+\index{mParameters@{mParameters}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{mParameters}{mParameters}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_communication_parameters}{Communication\+Parameters}} Q\+T\+C\+P\+Client\+::m\+Parameters\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The parameters that will be used for socket creation/bind and connection to target host Note that QT dynamic properties can also be used for this purpose. 
+
+\mbox{\Hypertarget{class_q_t_c_p_client_aa8ba318fd6d97e06c97da365d9ccd59d}\label{class_q_t_c_p_client_aa8ba318fd6d97e06c97da365d9ccd59d}} 
+\index{QTCPClient@{QTCPClient}!mTcpSocket@{mTcpSocket}}
+\index{mTcpSocket@{mTcpSocket}!QTCPClient@{QTCPClient}}
+\doxysubsubsection{\texorpdfstring{mTcpSocket}{mTcpSocket}}
+{\footnotesize\ttfamily Q\+Tcp\+Socket Q\+T\+C\+P\+Client\+::m\+Tcp\+Socket\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Underlying T\+CP client socket. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Network\+Library/\mbox{\hyperlink{_q_t_c_p_client_8h}{Q\+T\+C\+P\+Client.\+h}}\item 
+Network\+Library/\+Generated\+Files/\+Debug/\mbox{\hyperlink{moc___q_t_c_p_client_8cpp}{moc\+\_\+\+Q\+T\+C\+P\+Client.\+cpp}}\item 
+Network\+Library/\mbox{\hyperlink{_q_t_c_p_client_8cpp}{Q\+T\+C\+P\+Client.\+cpp}}\end{DoxyCompactItemize}

@@ -27,3 +27,4 @@
 /QtConsoleApplication2/Debug
 /QTServerTestApp/QTServerTestApp.vcxproj.user
 *.user
+/QTServerTestApp/GeneratedFiles

@@ -1,0 +1,366 @@
+\hypertarget{class_i_server_medium}{}\doxysection{I\+Server\+Medium Class Reference}
+\label{class_i_server_medium}\index{IServerMedium@{IServerMedium}}
+
+
+{\ttfamily \#include $<$I\+Server\+Medium.\+h$>$}
+
+Inheritance diagram for I\+Server\+Medium\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_server_medium}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_i_server_medium_ac0c8240efa06922374ba0bd4d2254437}{new\+Client\+Connected}} (\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}} client\+Id)
+\begin{DoxyCompactList}\small\item\em The signal is emitted when a new client is connected \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_i_server_medium_a5f96b9a6e583fb6b41eb91e54229353c}{client\+Disconnected}} (\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}} client\+Id)
+\begin{DoxyCompactList}\small\item\em The signal is emitted when a connected client is disconnected \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_i_server_medium_aaf2699ba0f634fc2d351cfaf618476c4}{client\+Data\+Written}} (\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}} client\+Id)
+\begin{DoxyCompactList}\small\item\em When writing/sending data is completed \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_i_server_medium_a0667dacf0df1528241c25b76eadac667}{client\+Data\+Ready\+To\+Read}} (\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}} client\+Id)
+\begin{DoxyCompactList}\small\item\em There is data that need to be processed for given client \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_i_server_medium_a118f5e432a9455014d3b69cf2e1673d2}{client\+Error\+Occurred}} (\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}} client\+Id, int error\+Code)
+\begin{DoxyCompactList}\small\item\em The signal is emitted when any kind of error is occurred for given client \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_i_server_medium_a7351c42a88ac383be2eb3bbb62244ca6}{error\+Occurred}} (int error\+Code)
+\begin{DoxyCompactList}\small\item\em The signal is emitted when server associated error is occurred \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_i_server_medium_a48d77211d273b58d731794bf60431574}{assign\+Parameters}} (const \mbox{\hyperlink{class_communication_parameters}{Communication\+Parameters}} \&parameters)=0
+\begin{DoxyCompactList}\small\item\em Each communication medium configuration parameters should be passed via this A\+PI. The list of parameters are dictated/known by communication medium itself \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_i_server_medium_a0759c7d0e5b8f7e06ffa86873459210d}{initialize}} ()=0
+\begin{DoxyCompactList}\small\item\em Perform initialization activities required for given medium (bind etc for sockets) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_server_medium_a651fb9e7bff10ac6fac57c4c93f153bc}{finalize}} ()=0
+\begin{DoxyCompactList}\small\item\em Perform destruction and close activities required for given medium \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_i_server_medium_acf9fe86dded3078034396d11eeb0f4e4}{is\+Initialized}} ()=0
+\begin{DoxyCompactList}\small\item\em Is communication medium initialized properly \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_server_medium_a287e8e25d3ddf28d03873cf838049bd0}{start\+Listening}} ()=0
+\begin{DoxyCompactList}\small\item\em Server specific A\+P\+Is \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_server_medium_a36a9146c489b6aeb76012b0c2c996252}{stop\+Listening}} ()=0
+\item 
+virtual bool \mbox{\hyperlink{class_i_server_medium_ac85a6e492a26ad15dddc33ca369ca4fd}{is\+Listening}} ()=0
+\begin{DoxyCompactList}\small\item\em Is communication medium listening given the port \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_server_medium_adf4282cddb8b2a0604a2a5c00a050f64}{disconnect\+Client}} (\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}} client\+Id)=0
+\begin{DoxyCompactList}\small\item\em Disconnect given client. The client will also removed from our connected list \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_i_server_medium_a172996301a74ca59f567f2852478689b}{is\+Connected}} (\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}} client\+Id)=0
+\begin{DoxyCompactList}\small\item\em Check if provided client is connected \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_server_medium_a528f251709d6d5d8f5ee753d6051c5c2}{get\+Client\+Information}} (\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}} client\+Id, std\+::vector$<$ \mbox{\hyperlink{struct_property_item}{Property\+Item}} $>$ \&client\+Info)=0
+\begin{DoxyCompactList}\small\item\em Obtain corresponding client information \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_i_connected_client}{I\+Connected\+Client}} $\ast$ \mbox{\hyperlink{class_i_server_medium_aebd741ba14bdaf1b7c938918b8b9821e}{get\+Connected\+Client\+Interface}} (\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}} client\+Id)=0
+\begin{DoxyCompactList}\small\item\em Obtain an interface for connected client that identified with given id \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_server_medium_a0f674a2759bf495a47316d71824fc15f}{get\+Connected\+Client\+List}} (std\+::vector$<$ \mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}} $>$ \&client\+Id\+List)=0
+\begin{DoxyCompactList}\small\item\em Obtain list of connected client unique ids \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_server_medium_a48d77211d273b58d731794bf60431574}\label{class_i_server_medium_a48d77211d273b58d731794bf60431574}} 
+\index{IServerMedium@{IServerMedium}!assignParameters@{assignParameters}}
+\index{assignParameters@{assignParameters}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{assignParameters()}{assignParameters()}}
+{\footnotesize\ttfamily virtual void I\+Server\+Medium\+::assign\+Parameters (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_communication_parameters}{Communication\+Parameters}} \&}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Each communication medium configuration parameters should be passed via this A\+PI. The list of parameters are dictated/known by communication medium itself 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameters} & The parameter mapping (name/value)\\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_q_t_c_p_server_aa74ed0d7df28e480ee22f145aea12b30}{Q\+T\+C\+P\+Server}}.
+
+\mbox{\Hypertarget{class_i_server_medium_a0667dacf0df1528241c25b76eadac667}\label{class_i_server_medium_a0667dacf0df1528241c25b76eadac667}} 
+\index{IServerMedium@{IServerMedium}!clientDataReadyToRead@{clientDataReadyToRead}}
+\index{clientDataReadyToRead@{clientDataReadyToRead}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{clientDataReadyToRead}{clientDataReadyToRead}}
+{\footnotesize\ttfamily void I\+Server\+Medium\+::client\+Data\+Ready\+To\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}}}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+There is data that need to be processed for given client 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The unique id of client\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_i_server_medium_aaf2699ba0f634fc2d351cfaf618476c4}\label{class_i_server_medium_aaf2699ba0f634fc2d351cfaf618476c4}} 
+\index{IServerMedium@{IServerMedium}!clientDataWritten@{clientDataWritten}}
+\index{clientDataWritten@{clientDataWritten}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{clientDataWritten}{clientDataWritten}}
+{\footnotesize\ttfamily void I\+Server\+Medium\+::client\+Data\+Written (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}}}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+When writing/sending data is completed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The unique id of client\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_i_server_medium_a5f96b9a6e583fb6b41eb91e54229353c}\label{class_i_server_medium_a5f96b9a6e583fb6b41eb91e54229353c}} 
+\index{IServerMedium@{IServerMedium}!clientDisconnected@{clientDisconnected}}
+\index{clientDisconnected@{clientDisconnected}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{clientDisconnected}{clientDisconnected}}
+{\footnotesize\ttfamily void I\+Server\+Medium\+::client\+Disconnected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}}}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The signal is emitted when a connected client is disconnected 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The unique id of client\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_i_server_medium_a118f5e432a9455014d3b69cf2e1673d2}\label{class_i_server_medium_a118f5e432a9455014d3b69cf2e1673d2}} 
+\index{IServerMedium@{IServerMedium}!clientErrorOccurred@{clientErrorOccurred}}
+\index{clientErrorOccurred@{clientErrorOccurred}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{clientErrorOccurred}{clientErrorOccurred}}
+{\footnotesize\ttfamily void I\+Server\+Medium\+::client\+Error\+Occurred (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}}}]{client\+Id,  }\item[{int}]{error\+Code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The signal is emitted when any kind of error is occurred for given client 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The unique id of client\\
+\hline
+{\em error\+Code} & The occurred error code\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_i_server_medium_adf4282cddb8b2a0604a2a5c00a050f64}\label{class_i_server_medium_adf4282cddb8b2a0604a2a5c00a050f64}} 
+\index{IServerMedium@{IServerMedium}!disconnectClient@{disconnectClient}}
+\index{disconnectClient@{disconnectClient}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{disconnectClient()}{disconnectClient()}}
+{\footnotesize\ttfamily virtual void I\+Server\+Medium\+::disconnect\+Client (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}}}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Disconnect given client. The client will also removed from our connected list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The unique id of client\\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_q_t_c_p_server_ab9dbcff6a4b337e5e8bda614a775bdca}{Q\+T\+C\+P\+Server}}.
+
+\mbox{\Hypertarget{class_i_server_medium_a7351c42a88ac383be2eb3bbb62244ca6}\label{class_i_server_medium_a7351c42a88ac383be2eb3bbb62244ca6}} 
+\index{IServerMedium@{IServerMedium}!errorOccurred@{errorOccurred}}
+\index{errorOccurred@{errorOccurred}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{errorOccurred}{errorOccurred}}
+{\footnotesize\ttfamily void I\+Server\+Medium\+::error\+Occurred (\begin{DoxyParamCaption}\item[{int}]{error\+Code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The signal is emitted when server associated error is occurred 
+
+
+\begin{DoxyParams}{Parameters}
+{\em error\+Code} & The occurred error code\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_i_server_medium_a651fb9e7bff10ac6fac57c4c93f153bc}\label{class_i_server_medium_a651fb9e7bff10ac6fac57c4c93f153bc}} 
+\index{IServerMedium@{IServerMedium}!finalize@{finalize}}
+\index{finalize@{finalize}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{finalize()}{finalize()}}
+{\footnotesize\ttfamily virtual void I\+Server\+Medium\+::finalize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Perform destruction and close activities required for given medium 
+
+
+
+Implemented in \mbox{\hyperlink{class_q_t_c_p_server_a7fd6c8bac7ec8d09031ee69f92fd160e}{Q\+T\+C\+P\+Server}}.
+
+\mbox{\Hypertarget{class_i_server_medium_a528f251709d6d5d8f5ee753d6051c5c2}\label{class_i_server_medium_a528f251709d6d5d8f5ee753d6051c5c2}} 
+\index{IServerMedium@{IServerMedium}!getClientInformation@{getClientInformation}}
+\index{getClientInformation@{getClientInformation}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{getClientInformation()}{getClientInformation()}}
+{\footnotesize\ttfamily virtual void I\+Server\+Medium\+::get\+Client\+Information (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}}}]{client\+Id,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_property_item}{Property\+Item}} $>$ \&}]{client\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obtain corresponding client information 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The unique id of client\\
+\hline
+{\em client\+Info} & The client information\\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_q_t_c_p_server_a761dd1329752d48ad2371b1110bc14ee}{Q\+T\+C\+P\+Server}}.
+
+\mbox{\Hypertarget{class_i_server_medium_aebd741ba14bdaf1b7c938918b8b9821e}\label{class_i_server_medium_aebd741ba14bdaf1b7c938918b8b9821e}} 
+\index{IServerMedium@{IServerMedium}!getConnectedClientInterface@{getConnectedClientInterface}}
+\index{getConnectedClientInterface@{getConnectedClientInterface}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{getConnectedClientInterface()}{getConnectedClientInterface()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_i_connected_client}{I\+Connected\+Client}}$\ast$ I\+Server\+Medium\+::get\+Connected\+Client\+Interface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}}}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obtain an interface for connected client that identified with given id 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The unique id of client\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The interface for given connected client
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_q_t_c_p_server_a9c84d7dfa2122645093c0e2c77d2d4b2}{Q\+T\+C\+P\+Server}}.
+
+\mbox{\Hypertarget{class_i_server_medium_a0f674a2759bf495a47316d71824fc15f}\label{class_i_server_medium_a0f674a2759bf495a47316d71824fc15f}} 
+\index{IServerMedium@{IServerMedium}!getConnectedClientList@{getConnectedClientList}}
+\index{getConnectedClientList@{getConnectedClientList}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{getConnectedClientList()}{getConnectedClientList()}}
+{\footnotesize\ttfamily virtual void I\+Server\+Medium\+::get\+Connected\+Client\+List (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}} $>$ \&}]{client\+Id\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obtain list of connected client unique ids 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id\+List} & The list of unique ids\\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_q_t_c_p_server_abf8b7a1403caa5746b8dcc580459c989}{Q\+T\+C\+P\+Server}}.
+
+\mbox{\Hypertarget{class_i_server_medium_a0759c7d0e5b8f7e06ffa86873459210d}\label{class_i_server_medium_a0759c7d0e5b8f7e06ffa86873459210d}} 
+\index{IServerMedium@{IServerMedium}!initialize@{initialize}}
+\index{initialize@{initialize}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily virtual bool I\+Server\+Medium\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Perform initialization activities required for given medium (bind etc for sockets) 
+
+\begin{DoxyReturn}{Returns}
+The result of initialization
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_q_t_c_p_server_a32a585788231b71cde430fe1ab808762}{Q\+T\+C\+P\+Server}}.
+
+\mbox{\Hypertarget{class_i_server_medium_a172996301a74ca59f567f2852478689b}\label{class_i_server_medium_a172996301a74ca59f567f2852478689b}} 
+\index{IServerMedium@{IServerMedium}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{isConnected()}{isConnected()}}
+{\footnotesize\ttfamily virtual bool I\+Server\+Medium\+::is\+Connected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}}}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Check if provided client is connected 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The unique id of client\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Connection status
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_q_t_c_p_server_ac1b2440266344d22d8c3b4e3b1bccfa9}{Q\+T\+C\+P\+Server}}.
+
+\mbox{\Hypertarget{class_i_server_medium_acf9fe86dded3078034396d11eeb0f4e4}\label{class_i_server_medium_acf9fe86dded3078034396d11eeb0f4e4}} 
+\index{IServerMedium@{IServerMedium}!isInitialized@{isInitialized}}
+\index{isInitialized@{isInitialized}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{isInitialized()}{isInitialized()}}
+{\footnotesize\ttfamily virtual bool I\+Server\+Medium\+::is\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Is communication medium initialized properly 
+
+\begin{DoxyReturn}{Returns}
+Initialization status
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_q_t_c_p_server_ae33c78794d715318ead35eed5e12c31f}{Q\+T\+C\+P\+Server}}.
+
+\mbox{\Hypertarget{class_i_server_medium_ac85a6e492a26ad15dddc33ca369ca4fd}\label{class_i_server_medium_ac85a6e492a26ad15dddc33ca369ca4fd}} 
+\index{IServerMedium@{IServerMedium}!isListening@{isListening}}
+\index{isListening@{isListening}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{isListening()}{isListening()}}
+{\footnotesize\ttfamily virtual bool I\+Server\+Medium\+::is\+Listening (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Is communication medium listening given the port 
+
+\begin{DoxyReturn}{Returns}
+true =$>$ can be used for that purpose, false =$>$ not ready 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_q_t_c_p_server_a074248801f8612fc1a1d39a44c9e963e}{Q\+T\+C\+P\+Server}}.
+
+\mbox{\Hypertarget{class_i_server_medium_ac0c8240efa06922374ba0bd4d2254437}\label{class_i_server_medium_ac0c8240efa06922374ba0bd4d2254437}} 
+\index{IServerMedium@{IServerMedium}!newClientConnected@{newClientConnected}}
+\index{newClientConnected@{newClientConnected}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{newClientConnected}{newClientConnected}}
+{\footnotesize\ttfamily void I\+Server\+Medium\+::new\+Client\+Connected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a25c039d3d34c21eedbe5a9ff5a5a7672}{u\+U\+Int64}}}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The signal is emitted when a new client is connected 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The unique id of client\\
+\hline
+\end{DoxyParams}
+~\newline
+ \mbox{\Hypertarget{class_i_server_medium_a287e8e25d3ddf28d03873cf838049bd0}\label{class_i_server_medium_a287e8e25d3ddf28d03873cf838049bd0}} 
+\index{IServerMedium@{IServerMedium}!startListening@{startListening}}
+\index{startListening@{startListening}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{startListening()}{startListening()}}
+{\footnotesize\ttfamily virtual void I\+Server\+Medium\+::start\+Listening (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Server specific A\+P\+Is 
+
+
+
+Implemented in \mbox{\hyperlink{class_q_t_c_p_server_adf5ed8ff6dd3764ca7c4839e23a356c4}{Q\+T\+C\+P\+Server}}.
+
+\mbox{\Hypertarget{class_i_server_medium_a36a9146c489b6aeb76012b0c2c996252}\label{class_i_server_medium_a36a9146c489b6aeb76012b0c2c996252}} 
+\index{IServerMedium@{IServerMedium}!stopListening@{stopListening}}
+\index{stopListening@{stopListening}!IServerMedium@{IServerMedium}}
+\doxysubsubsection{\texorpdfstring{stopListening()}{stopListening()}}
+{\footnotesize\ttfamily virtual void I\+Server\+Medium\+::stop\+Listening (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_q_t_c_p_server_aa45effd371b0f2ac0b86b9f77929c505}{Q\+T\+C\+P\+Server}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Network\+Library/\mbox{\hyperlink{_i_server_medium_8h}{I\+Server\+Medium.\+h}}\end{DoxyCompactItemize}

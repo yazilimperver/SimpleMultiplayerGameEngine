@@ -1,0 +1,204 @@
+\hypertarget{class_multi_purpose_input_field}{}\doxysection{Multi\+Purpose\+Input\+Field Class Reference}
+\label{class_multi_purpose_input_field}\index{MultiPurposeInputField@{MultiPurposeInputField}}
+
+
+A QT control which can be used to obtain data either in A\+S\+C\+II or number or binary format.  
+
+
+
+
+{\ttfamily \#include $<$Multi\+Purpose\+Input\+Field.\+h$>$}
+
+Inheritance diagram for Multi\+Purpose\+Input\+Field\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_multi_purpose_input_field}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_multi_purpose_input_field_ad28ce869a468422c43c3c09c8f38c265}{Input\+Data\+Type}} \{ \mbox{\hyperlink{class_multi_purpose_input_field_ad28ce869a468422c43c3c09c8f38c265a398aa687ae3cb2b7172ca8395c216561}{Input\+Data\+Type\+::e\+I\+N\+P\+U\+T\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+A\+S\+C\+II}}, 
+\mbox{\hyperlink{class_multi_purpose_input_field_ad28ce869a468422c43c3c09c8f38c265a523577642b760701d7080e0f783d7c93}{Input\+Data\+Type\+::e\+I\+N\+P\+U\+T\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+M\+B\+ER}}, 
+\mbox{\hyperlink{class_multi_purpose_input_field_ad28ce869a468422c43c3c09c8f38c265acebdf5b0106ecb7195e15b8a07e277ff}{Input\+Data\+Type\+::e\+I\+N\+P\+U\+T\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+H\+EX}}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of data that are supported by this QT widget. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_multi_purpose_input_field_a21392078f82ff5eb4831da2e19f688ec}{Multi\+Purpose\+Input\+Field}} (Q\+Widget $\ast$parent=Q\+\_\+\+N\+U\+L\+L\+P\+TR)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_purpose_input_field_ae3619fae4deca32eb8cd0e5fdff2b551}{$\sim$\+Multi\+Purpose\+Input\+Field}} ()
+\item 
+unsigned int \mbox{\hyperlink{class_multi_purpose_input_field_af0ec62dafea7a0250107ae19fe658c75}{get\+Max\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Gets maximum size that this component allows user to enter with respect to Input\+Data\+Type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_multi_purpose_input_field_a2ccc0756007750dde00fd7a8c2e76fd7}{set\+Max\+Size}} (unsigned int val)
+\begin{DoxyCompactList}\small\item\em Sets maximum size that this component allows. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_multi_purpose_input_field_a7f8bdffb44dcba9d6a0e527dfcdbb64d}{get\+Text}} ()
+\begin{DoxyCompactList}\small\item\em Obtain the text represented by this input which is only applicable for e\+I\+N\+P\+U\+T\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+A\+S\+C\+II. \end{DoxyCompactList}\item 
+qint64 \mbox{\hyperlink{class_multi_purpose_input_field_a341b683ea4d76612dbce0f3f227b5b37}{get\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Obtain the number represented by this input which is only applicable for e\+I\+N\+P\+U\+T\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+M\+B\+ER. \end{DoxyCompactList}\item 
+Q\+Byte\+Array \mbox{\hyperlink{class_multi_purpose_input_field_a5718ae93ad26a19d5b614ababb3a511f}{get\+Binary\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Obtain the data represented by this input which is only applicable for e\+I\+N\+P\+U\+T\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+H\+EX. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_purpose_input_field_ad28ce869a468422c43c3c09c8f38c265}{Multi\+Purpose\+Input\+Field\+::\+Input\+Data\+Type}} \mbox{\hyperlink{class_multi_purpose_input_field_ad305dd8b678fe78a2c987dbe47683175}{get\+Input\+Data\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Gets input data type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_multi_purpose_input_field_a6bf55b35e568b598768d8bf3e2ef6904}{set\+Input\+Data\+Type}} (\mbox{\hyperlink{class_multi_purpose_input_field_ad28ce869a468422c43c3c09c8f38c265}{Multi\+Purpose\+Input\+Field\+::\+Input\+Data\+Type}} val)
+\begin{DoxyCompactList}\small\item\em Sets input data type The maximum size that this input component allow. The specific size will be determined with respect to input data type. This is calculated in \mbox{\hyperlink{class_multi_purpose_input_field_a6bf55b35e568b598768d8bf3e2ef6904}{set\+Input\+Data\+Type()}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A QT control which can be used to obtain data either in A\+S\+C\+II or number or binary format. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_multi_purpose_input_field_ad28ce869a468422c43c3c09c8f38c265}\label{class_multi_purpose_input_field_ad28ce869a468422c43c3c09c8f38c265}} 
+\index{MultiPurposeInputField@{MultiPurposeInputField}!InputDataType@{InputDataType}}
+\index{InputDataType@{InputDataType}!MultiPurposeInputField@{MultiPurposeInputField}}
+\doxysubsubsection{\texorpdfstring{InputDataType}{InputDataType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_multi_purpose_input_field_ad28ce869a468422c43c3c09c8f38c265}{Multi\+Purpose\+Input\+Field\+::\+Input\+Data\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Types of data that are supported by this QT widget. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eINPUT\_DATA\_TYPE\_ASCII@{eINPUT\_DATA\_TYPE\_ASCII}!MultiPurposeInputField@{MultiPurposeInputField}}\index{MultiPurposeInputField@{MultiPurposeInputField}!eINPUT\_DATA\_TYPE\_ASCII@{eINPUT\_DATA\_TYPE\_ASCII}}}\mbox{\Hypertarget{class_multi_purpose_input_field_ad28ce869a468422c43c3c09c8f38c265a398aa687ae3cb2b7172ca8395c216561}\label{class_multi_purpose_input_field_ad28ce869a468422c43c3c09c8f38c265a398aa687ae3cb2b7172ca8395c216561}} 
+e\+I\+N\+P\+U\+T\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+A\+S\+C\+II&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eINPUT\_DATA\_TYPE\_NUMBER@{eINPUT\_DATA\_TYPE\_NUMBER}!MultiPurposeInputField@{MultiPurposeInputField}}\index{MultiPurposeInputField@{MultiPurposeInputField}!eINPUT\_DATA\_TYPE\_NUMBER@{eINPUT\_DATA\_TYPE\_NUMBER}}}\mbox{\Hypertarget{class_multi_purpose_input_field_ad28ce869a468422c43c3c09c8f38c265a523577642b760701d7080e0f783d7c93}\label{class_multi_purpose_input_field_ad28ce869a468422c43c3c09c8f38c265a523577642b760701d7080e0f783d7c93}} 
+e\+I\+N\+P\+U\+T\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+M\+B\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eINPUT\_DATA\_TYPE\_BINARY\_HEX@{eINPUT\_DATA\_TYPE\_BINARY\_HEX}!MultiPurposeInputField@{MultiPurposeInputField}}\index{MultiPurposeInputField@{MultiPurposeInputField}!eINPUT\_DATA\_TYPE\_BINARY\_HEX@{eINPUT\_DATA\_TYPE\_BINARY\_HEX}}}\mbox{\Hypertarget{class_multi_purpose_input_field_ad28ce869a468422c43c3c09c8f38c265acebdf5b0106ecb7195e15b8a07e277ff}\label{class_multi_purpose_input_field_ad28ce869a468422c43c3c09c8f38c265acebdf5b0106ecb7195e15b8a07e277ff}} 
+e\+I\+N\+P\+U\+T\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+H\+EX&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_multi_purpose_input_field_a21392078f82ff5eb4831da2e19f688ec}\label{class_multi_purpose_input_field_a21392078f82ff5eb4831da2e19f688ec}} 
+\index{MultiPurposeInputField@{MultiPurposeInputField}!MultiPurposeInputField@{MultiPurposeInputField}}
+\index{MultiPurposeInputField@{MultiPurposeInputField}!MultiPurposeInputField@{MultiPurposeInputField}}
+\doxysubsubsection{\texorpdfstring{MultiPurposeInputField()}{MultiPurposeInputField()}}
+{\footnotesize\ttfamily Multi\+Purpose\+Input\+Field\+::\+Multi\+Purpose\+Input\+Field (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily Q\+\_\+NULLPTR} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em parent} & (Optional) If non-\/null, the parent. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_multi_purpose_input_field_ae3619fae4deca32eb8cd0e5fdff2b551}\label{class_multi_purpose_input_field_ae3619fae4deca32eb8cd0e5fdff2b551}} 
+\index{MultiPurposeInputField@{MultiPurposeInputField}!````~MultiPurposeInputField@{$\sim$MultiPurposeInputField}}
+\index{````~MultiPurposeInputField@{$\sim$MultiPurposeInputField}!MultiPurposeInputField@{MultiPurposeInputField}}
+\doxysubsubsection{\texorpdfstring{$\sim$MultiPurposeInputField()}{~MultiPurposeInputField()}}
+{\footnotesize\ttfamily Multi\+Purpose\+Input\+Field\+::$\sim$\+Multi\+Purpose\+Input\+Field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_multi_purpose_input_field_a5718ae93ad26a19d5b614ababb3a511f}\label{class_multi_purpose_input_field_a5718ae93ad26a19d5b614ababb3a511f}} 
+\index{MultiPurposeInputField@{MultiPurposeInputField}!getBinaryData@{getBinaryData}}
+\index{getBinaryData@{getBinaryData}!MultiPurposeInputField@{MultiPurposeInputField}}
+\doxysubsubsection{\texorpdfstring{getBinaryData()}{getBinaryData()}}
+{\footnotesize\ttfamily Q\+Byte\+Array Multi\+Purpose\+Input\+Field\+::get\+Binary\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtain the data represented by this input which is only applicable for e\+I\+N\+P\+U\+T\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+H\+EX. 
+
+\begin{DoxyReturn}{Returns}
+The binary data. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_multi_purpose_input_field_ad305dd8b678fe78a2c987dbe47683175}\label{class_multi_purpose_input_field_ad305dd8b678fe78a2c987dbe47683175}} 
+\index{MultiPurposeInputField@{MultiPurposeInputField}!getInputDataType@{getInputDataType}}
+\index{getInputDataType@{getInputDataType}!MultiPurposeInputField@{MultiPurposeInputField}}
+\doxysubsubsection{\texorpdfstring{getInputDataType()}{getInputDataType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_multi_purpose_input_field_ad28ce869a468422c43c3c09c8f38c265}{Multi\+Purpose\+Input\+Field\+::\+Input\+Data\+Type}} Multi\+Purpose\+Input\+Field\+::get\+Input\+Data\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets input data type. 
+
+\begin{DoxyReturn}{Returns}
+The input data type. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_multi_purpose_input_field_af0ec62dafea7a0250107ae19fe658c75}\label{class_multi_purpose_input_field_af0ec62dafea7a0250107ae19fe658c75}} 
+\index{MultiPurposeInputField@{MultiPurposeInputField}!getMaxSize@{getMaxSize}}
+\index{getMaxSize@{getMaxSize}!MultiPurposeInputField@{MultiPurposeInputField}}
+\doxysubsubsection{\texorpdfstring{getMaxSize()}{getMaxSize()}}
+{\footnotesize\ttfamily unsigned int Multi\+Purpose\+Input\+Field\+::get\+Max\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets maximum size that this component allows user to enter with respect to Input\+Data\+Type. 
+
+\begin{DoxyReturn}{Returns}
+The maximum size. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_multi_purpose_input_field_a341b683ea4d76612dbce0f3f227b5b37}\label{class_multi_purpose_input_field_a341b683ea4d76612dbce0f3f227b5b37}} 
+\index{MultiPurposeInputField@{MultiPurposeInputField}!getNumber@{getNumber}}
+\index{getNumber@{getNumber}!MultiPurposeInputField@{MultiPurposeInputField}}
+\doxysubsubsection{\texorpdfstring{getNumber()}{getNumber()}}
+{\footnotesize\ttfamily qint64 Multi\+Purpose\+Input\+Field\+::get\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtain the number represented by this input which is only applicable for e\+I\+N\+P\+U\+T\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+M\+B\+ER. 
+
+\begin{DoxyReturn}{Returns}
+The number. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_multi_purpose_input_field_a7f8bdffb44dcba9d6a0e527dfcdbb64d}\label{class_multi_purpose_input_field_a7f8bdffb44dcba9d6a0e527dfcdbb64d}} 
+\index{MultiPurposeInputField@{MultiPurposeInputField}!getText@{getText}}
+\index{getText@{getText}!MultiPurposeInputField@{MultiPurposeInputField}}
+\doxysubsubsection{\texorpdfstring{getText()}{getText()}}
+{\footnotesize\ttfamily std\+::string Multi\+Purpose\+Input\+Field\+::get\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtain the text represented by this input which is only applicable for e\+I\+N\+P\+U\+T\+\_\+\+D\+A\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+A\+S\+C\+II. 
+
+\begin{DoxyReturn}{Returns}
+The text. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_multi_purpose_input_field_a6bf55b35e568b598768d8bf3e2ef6904}\label{class_multi_purpose_input_field_a6bf55b35e568b598768d8bf3e2ef6904}} 
+\index{MultiPurposeInputField@{MultiPurposeInputField}!setInputDataType@{setInputDataType}}
+\index{setInputDataType@{setInputDataType}!MultiPurposeInputField@{MultiPurposeInputField}}
+\doxysubsubsection{\texorpdfstring{setInputDataType()}{setInputDataType()}}
+{\footnotesize\ttfamily void Multi\+Purpose\+Input\+Field\+::set\+Input\+Data\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_purpose_input_field_ad28ce869a468422c43c3c09c8f38c265}{Multi\+Purpose\+Input\+Field\+::\+Input\+Data\+Type}}}]{val }\end{DoxyParamCaption})}
+
+
+
+Sets input data type The maximum size that this input component allow. The specific size will be determined with respect to input data type. This is calculated in \mbox{\hyperlink{class_multi_purpose_input_field_a6bf55b35e568b598768d8bf3e2ef6904}{set\+Input\+Data\+Type()}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The value. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_multi_purpose_input_field_a2ccc0756007750dde00fd7a8c2e76fd7}\label{class_multi_purpose_input_field_a2ccc0756007750dde00fd7a8c2e76fd7}} 
+\index{MultiPurposeInputField@{MultiPurposeInputField}!setMaxSize@{setMaxSize}}
+\index{setMaxSize@{setMaxSize}!MultiPurposeInputField@{MultiPurposeInputField}}
+\doxysubsubsection{\texorpdfstring{setMaxSize()}{setMaxSize()}}
+{\footnotesize\ttfamily void Multi\+Purpose\+Input\+Field\+::set\+Max\+Size (\begin{DoxyParamCaption}\item[{unsigned int}]{val }\end{DoxyParamCaption})}
+
+
+
+Sets maximum size that this component allows. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The value. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Q\+T\+Client\+Test\+App/\mbox{\hyperlink{_multi_purpose_input_field_8h}{Multi\+Purpose\+Input\+Field.\+h}}\item 
+Q\+T\+Client\+Test\+App/\mbox{\hyperlink{_multi_purpose_input_field_8cpp}{Multi\+Purpose\+Input\+Field.\+cpp}}\end{DoxyCompactItemize}

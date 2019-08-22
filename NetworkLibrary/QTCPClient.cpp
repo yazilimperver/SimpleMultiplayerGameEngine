@@ -6,6 +6,11 @@
 QTCPClient::QTCPClient()
 	: mTcpSocket{this}
 {
+	QObject::connect(&mTcpSocket, &QTcpSocket::connected, this, &QTCPClient::clientConnected);
+	QObject::connect(&mTcpSocket, &QTcpSocket::disconnected, this, &QTCPClient::clientDisconnected);
+	QObject::connect(&mTcpSocket, &QIODevice::readyRead, this, &QTCPClient::dataArrived);
+
+	QObject::connect(&mTcpSocket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(errorOccurred(QAbstractSocket::SocketError)));
 }
 
 void QTCPClient::assignParameters(const CommunicationParameters& parameters)
@@ -41,13 +46,15 @@ bool QTCPClient::initialize()
 			mParameters.getParameterValue<std::string>(cParameter_LocalAddress, localHost);
 			mIsInitialized = mTcpSocket.bind(QHostAddress(localHost.c_str()), portNo);
 		}
+		else
+		{
+			// Random port is used
+			mIsInitialized = mTcpSocket.bind();
+
+			// Store local port
+			mParameters.updateParameterValue(cParameter_LocalPort, static_cast<int>(mTcpSocket.localPort()));
+		}
 	}	
-
-	QObject::connect(&mTcpSocket, &QTcpSocket::connected, this, &QTCPClient::clientConnected);
-	QObject::connect(&mTcpSocket, &QTcpSocket::disconnected, this, &QTCPClient::clientDisconnected);
-	QObject::connect(&mTcpSocket, &QIODevice::readyRead, this, &QTCPClient::dataArrived);
-
-	QObject::connect(&mTcpSocket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(errorOccurred(QAbstractSocket::SocketError)));
 
 	return mIsInitialized;
 }
@@ -55,11 +62,8 @@ bool QTCPClient::initialize()
 void QTCPClient::finalize()
 {
 	// Close socket if not already
-	if (mTcpSocket.isOpen())
-	{
-		mTcpSocket.disconnect();
-		mTcpSocket.close();
-	}
+	if (true == this->isConnected())
+		mTcpSocket.disconnectFromHost();
 }
 
 bool QTCPClient::isInitialized()
@@ -69,7 +73,7 @@ bool QTCPClient::isInitialized()
 
 bool QTCPClient::isActive()
 {
-	return mTcpSocket.isOpen();
+	return this->isConnected();
 }
 
 uInt64 QTCPClient::readData(uInt64 maxByteCount, uByte* data)
@@ -78,6 +82,11 @@ uInt64 QTCPClient::readData(uInt64 maxByteCount, uByte* data)
 		return mTcpSocket.read(reinterpret_cast<char*>(data), maxByteCount);
 	else
 		return -1;
+}
+
+QByteArray QTCPClient::readData(uInt64 maxByteCount)
+{
+	return mTcpSocket.read(maxByteCount);
 }
 
 uInt64 QTCPClient::writeData(const uByte* data, uInt64 maxSize)
@@ -96,10 +105,15 @@ uInt64 QTCPClient::writeData(const uChar* data)
 		return -1;
 }
 
+uInt64 QTCPClient::writeData(const QByteArray& data)
+{
+	return mTcpSocket.write(data);
+}
+
 void QTCPClient::connect()
 {
-	if (mTcpSocket.isOpen())
-		mTcpSocket.abort();
+	if (true == this->isConnected())
+		mTcpSocket.disconnectFromHost();
 
 	int destPort { 0 };
 	std::string destAddr;
@@ -112,18 +126,20 @@ void QTCPClient::connect()
 
 void QTCPClient::disconnect()
 {
-	if (mTcpSocket.isOpen())
-		mTcpSocket.disconnectFromHost();
+	if (true == this->isConnected())
+	{
+		mTcpSocket.close();
+	}
 }
 
 bool QTCPClient::isConnected()
 {
-	return mTcpSocket.isOpen();
+	return mTcpSocket.state() == QTcpSocket::ConnectedState;
 }
 
 void QTCPClient::getPeerInformation(std::vector<PropertyItem>& peerInfo)
 {
-	if (mTcpSocket.state() == QAbstractSocket::ConnectedState)
+	if (true == this->isConnected())
 	{
 		peerInfo.clear();
 
@@ -132,6 +148,11 @@ void QTCPClient::getPeerInformation(std::vector<PropertyItem>& peerInfo)
 		peerInfo.push_back(PropertyItem{ IClientMedium::cParameter_PeerAddress, mTcpSocket.peerAddress() });
 		peerInfo.push_back(PropertyItem{ IClientMedium::cParameter_PeerPort, mTcpSocket.peerPort() });
 	}
+}
+
+uInt64 QTCPClient::availableDataSize()
+{
+	return mTcpSocket.bytesAvailable();
 }
 
 void QTCPClient::clientConnected()
@@ -173,5 +194,5 @@ void QTCPClient::errorOccurred(QAbstractSocket::SocketError socketError)
 		std::cout << "[QTCPClient] Error: " << mTcpSocket.errorString().data() << '\n';
 	}
 	
-	emit errorOccurred(static_cast<int>(socketError));
+	emit socketErrorOccurred(static_cast<int>(socketError));
 }

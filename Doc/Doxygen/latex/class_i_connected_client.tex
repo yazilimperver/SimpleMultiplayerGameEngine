@@ -1,0 +1,178 @@
+\hypertarget{class_i_connected_client}{}\doxysection{I\+Connected\+Client Class Reference}
+\label{class_i_connected_client}\index{IConnectedClient@{IConnectedClient}}
+
+
+This class is responsible for providing information about connected clients to server  
+
+
+
+
+{\ttfamily \#include $<$I\+Connected\+Client.\+h$>$}
+
+Inheritance diagram for I\+Connected\+Client\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_connected_client}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_i_connected_client_ab1fb4f2d5dcf6d662f60f7987df9712f}{disconnect}} ()=0
+\begin{DoxyCompactList}\small\item\em Close socket connection with given client \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} \mbox{\hyperlink{class_i_connected_client_af5469187050b44c301cf86828ce01346}{get\+Client\+Id}} ()=0
+\begin{DoxyCompactList}\small\item\em Return the id of this client \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_i_connected_client_ac568da35ed042c16110bbb322296283d}{is\+Active}} ()=0
+\begin{DoxyCompactList}\small\item\em Is client active \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_connected_client_ab851a94f324a4bbf9f018318d7fd879b}{get\+Client\+Information}} (std\+::vector$<$ \mbox{\hyperlink{struct_property_item}{Property\+Item}} $>$ \&client\+Info)=0
+\begin{DoxyCompactList}\small\item\em Obtain corresponding client information \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} \mbox{\hyperlink{class_i_connected_client_a7b03b3f212e7e24f576e51dc792f1a4c}{read\+Data}} (\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} max\+Byte\+Count, \mbox{\hyperlink{_basic_types_8h_ac84b689f65997690bfaf0c078c16cb04}{u\+Byte}} $\ast$data)=0
+\begin{DoxyCompactList}\small\item\em Data A\+P\+Is. Read can be initiated when a data read is ready \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} \mbox{\hyperlink{class_i_connected_client_a7e86b81afc9041419b261a041dc45454}{write\+Data}} (const \mbox{\hyperlink{_basic_types_8h_ac84b689f65997690bfaf0c078c16cb04}{u\+Byte}} $\ast$data, \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} max\+Size)=0
+\item 
+virtual \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} \mbox{\hyperlink{class_i_connected_client_a0335ab362d3e7dc86994ce08f4363bdf}{write\+Data}} (const \mbox{\hyperlink{_basic_types_8h_a4f063b9f3b660792b63b04e906552a21}{u\+Char}} $\ast$data)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::string \mbox{\hyperlink{class_i_connected_client_adfeeebdce8a6dd537520d65261973a4b}{c\+Parameter\+\_\+\+Peer\+Port}} \{ \char`\"{}Peer\+Port\char`\"{} \}
+\item 
+const std\+::string \mbox{\hyperlink{class_i_connected_client_ad07f47f6afacc5a8db51499e9db9bbe1}{c\+Parameter\+\_\+\+Peer\+Address}} \{ \char`\"{}Peer\+Address\char`\"{} \}
+\item 
+const std\+::string \mbox{\hyperlink{class_i_connected_client_ab24f6298855590b84569d5b6a69da943}{c\+Parameter\+\_\+\+Peer\+Name}} \{ \char`\"{}Peer\+Name\char`\"{} \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is responsible for providing information about connected clients to server 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_connected_client_ab1fb4f2d5dcf6d662f60f7987df9712f}\label{class_i_connected_client_ab1fb4f2d5dcf6d662f60f7987df9712f}} 
+\index{IConnectedClient@{IConnectedClient}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!IConnectedClient@{IConnectedClient}}
+\doxysubsubsection{\texorpdfstring{disconnect()}{disconnect()}}
+{\footnotesize\ttfamily virtual void I\+Connected\+Client\+::disconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Close socket connection with given client 
+
+
+
+Implemented in \mbox{\hyperlink{class_q_t_connected_client_a5d8b3c1c68f1111ea9231030804737af}{Q\+T\+Connected\+Client}}.
+
+\mbox{\Hypertarget{class_i_connected_client_af5469187050b44c301cf86828ce01346}\label{class_i_connected_client_af5469187050b44c301cf86828ce01346}} 
+\index{IConnectedClient@{IConnectedClient}!getClientId@{getClientId}}
+\index{getClientId@{getClientId}!IConnectedClient@{IConnectedClient}}
+\doxysubsubsection{\texorpdfstring{getClientId()}{getClientId()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} I\+Connected\+Client\+::get\+Client\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Return the id of this client 
+
+\begin{DoxyReturn}{Returns}
+Client id
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_q_t_connected_client_a7773e0f6ef3c0ee49e7fd822bdfcf310}{Q\+T\+Connected\+Client}}.
+
+\mbox{\Hypertarget{class_i_connected_client_ab851a94f324a4bbf9f018318d7fd879b}\label{class_i_connected_client_ab851a94f324a4bbf9f018318d7fd879b}} 
+\index{IConnectedClient@{IConnectedClient}!getClientInformation@{getClientInformation}}
+\index{getClientInformation@{getClientInformation}!IConnectedClient@{IConnectedClient}}
+\doxysubsubsection{\texorpdfstring{getClientInformation()}{getClientInformation()}}
+{\footnotesize\ttfamily virtual void I\+Connected\+Client\+::get\+Client\+Information (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_property_item}{Property\+Item}} $>$ \&}]{client\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obtain corresponding client information 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Info} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_q_t_connected_client_ad440c518ecc0e315a528251f2ad1ac58}{Q\+T\+Connected\+Client}}.
+
+\mbox{\Hypertarget{class_i_connected_client_ac568da35ed042c16110bbb322296283d}\label{class_i_connected_client_ac568da35ed042c16110bbb322296283d}} 
+\index{IConnectedClient@{IConnectedClient}!isActive@{isActive}}
+\index{isActive@{isActive}!IConnectedClient@{IConnectedClient}}
+\doxysubsubsection{\texorpdfstring{isActive()}{isActive()}}
+{\footnotesize\ttfamily virtual bool I\+Connected\+Client\+::is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Is client active 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_q_t_connected_client_abe9c2eb6f8e2cf07b6f2c5f07f970730}{Q\+T\+Connected\+Client}}.
+
+\mbox{\Hypertarget{class_i_connected_client_a7b03b3f212e7e24f576e51dc792f1a4c}\label{class_i_connected_client_a7b03b3f212e7e24f576e51dc792f1a4c}} 
+\index{IConnectedClient@{IConnectedClient}!readData@{readData}}
+\index{readData@{readData}!IConnectedClient@{IConnectedClient}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} I\+Connected\+Client\+::read\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}}}]{max\+Byte\+Count,  }\item[{\mbox{\hyperlink{_basic_types_8h_ac84b689f65997690bfaf0c078c16cb04}{u\+Byte}} $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Data A\+P\+Is. Read can be initiated when a data read is ready 
+
+
+
+Implemented in \mbox{\hyperlink{class_q_t_connected_client_af1b65c3a3a6b87ad046d4af846ec0e2c}{Q\+T\+Connected\+Client}}.
+
+\mbox{\Hypertarget{class_i_connected_client_a7e86b81afc9041419b261a041dc45454}\label{class_i_connected_client_a7e86b81afc9041419b261a041dc45454}} 
+\index{IConnectedClient@{IConnectedClient}!writeData@{writeData}}
+\index{writeData@{writeData}!IConnectedClient@{IConnectedClient}}
+\doxysubsubsection{\texorpdfstring{writeData()}{writeData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} I\+Connected\+Client\+::write\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_basic_types_8h_ac84b689f65997690bfaf0c078c16cb04}{u\+Byte}} $\ast$}]{data,  }\item[{\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}}}]{max\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_q_t_connected_client_a8e02aa1fd51d69033d1dd1361fffbabe}{Q\+T\+Connected\+Client}}.
+
+\mbox{\Hypertarget{class_i_connected_client_a0335ab362d3e7dc86994ce08f4363bdf}\label{class_i_connected_client_a0335ab362d3e7dc86994ce08f4363bdf}} 
+\index{IConnectedClient@{IConnectedClient}!writeData@{writeData}}
+\index{writeData@{writeData}!IConnectedClient@{IConnectedClient}}
+\doxysubsubsection{\texorpdfstring{writeData()}{writeData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} I\+Connected\+Client\+::write\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_basic_types_8h_a4f063b9f3b660792b63b04e906552a21}{u\+Char}} $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_q_t_connected_client_acf608954ff5d38e3490b506c049b30bd}{Q\+T\+Connected\+Client}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_i_connected_client_ad07f47f6afacc5a8db51499e9db9bbe1}\label{class_i_connected_client_ad07f47f6afacc5a8db51499e9db9bbe1}} 
+\index{IConnectedClient@{IConnectedClient}!cParameter\_PeerAddress@{cParameter\_PeerAddress}}
+\index{cParameter\_PeerAddress@{cParameter\_PeerAddress}!IConnectedClient@{IConnectedClient}}
+\doxysubsubsection{\texorpdfstring{cParameter\_PeerAddress}{cParameter\_PeerAddress}}
+{\footnotesize\ttfamily const std\+::string I\+Connected\+Client\+::c\+Parameter\+\_\+\+Peer\+Address \{ \char`\"{}Peer\+Address\char`\"{} \}}
+
+\mbox{\Hypertarget{class_i_connected_client_ab24f6298855590b84569d5b6a69da943}\label{class_i_connected_client_ab24f6298855590b84569d5b6a69da943}} 
+\index{IConnectedClient@{IConnectedClient}!cParameter\_PeerName@{cParameter\_PeerName}}
+\index{cParameter\_PeerName@{cParameter\_PeerName}!IConnectedClient@{IConnectedClient}}
+\doxysubsubsection{\texorpdfstring{cParameter\_PeerName}{cParameter\_PeerName}}
+{\footnotesize\ttfamily const std\+::string I\+Connected\+Client\+::c\+Parameter\+\_\+\+Peer\+Name \{ \char`\"{}Peer\+Name\char`\"{} \}}
+
+\mbox{\Hypertarget{class_i_connected_client_adfeeebdce8a6dd537520d65261973a4b}\label{class_i_connected_client_adfeeebdce8a6dd537520d65261973a4b}} 
+\index{IConnectedClient@{IConnectedClient}!cParameter\_PeerPort@{cParameter\_PeerPort}}
+\index{cParameter\_PeerPort@{cParameter\_PeerPort}!IConnectedClient@{IConnectedClient}}
+\doxysubsubsection{\texorpdfstring{cParameter\_PeerPort}{cParameter\_PeerPort}}
+{\footnotesize\ttfamily const std\+::string I\+Connected\+Client\+::c\+Parameter\+\_\+\+Peer\+Port \{ \char`\"{}Peer\+Port\char`\"{} \}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Network\+Library/\mbox{\hyperlink{_i_connected_client_8h}{I\+Connected\+Client.\+h}}\end{DoxyCompactItemize}

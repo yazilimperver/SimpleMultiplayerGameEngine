@@ -1,0 +1,217 @@
+\hypertarget{class_q_t_connected_client}{}\doxysection{Q\+T\+Connected\+Client Class Reference}
+\label{class_q_t_connected_client}\index{QTConnectedClient@{QTConnectedClient}}
+
+
+{\ttfamily \#include $<$Q\+T\+Connected\+Client.\+h$>$}
+
+Inheritance diagram for Q\+T\+Connected\+Client\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_q_t_connected_client}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_t_connected_client_a1dcf7174d7b8504e20b5510837238065}{Q\+T\+Connected\+Client}} (\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} unique\+Id, Q\+Tcp\+Socket $\ast$\&client\+Socket)
+\begin{DoxyCompactList}\small\item\em The constructor that takes underlying socket \end{DoxyCompactList}\item 
+Q\+Tcp\+Socket $\ast$ \mbox{\hyperlink{class_q_t_connected_client_aabd502230d7d7d159a5f0ca60b02fd3a}{get\+Underlying\+Socket}} ()
+\begin{DoxyCompactList}\small\item\em Returns the underlying socket \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} \mbox{\hyperlink{class_q_t_connected_client_a7773e0f6ef3c0ee49e7fd822bdfcf310}{get\+Client\+Id}} () override
+\begin{DoxyCompactList}\small\item\em Returns the unique id associated with this client \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_q_t_connected_client_abe9c2eb6f8e2cf07b6f2c5f07f970730}{is\+Active}} () override
+\begin{DoxyCompactList}\small\item\em Is this client still connected \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_q_t_connected_client_ad440c518ecc0e315a528251f2ad1ac58}{get\+Client\+Information}} (std\+::vector$<$ \mbox{\hyperlink{struct_property_item}{Property\+Item}} $>$ \&client\+Info) override
+\begin{DoxyCompactList}\small\item\em Return the information related with this client (address, port, name) \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} \mbox{\hyperlink{class_q_t_connected_client_af1b65c3a3a6b87ad046d4af846ec0e2c}{read\+Data}} (\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} max\+Byte\+Count, \mbox{\hyperlink{_basic_types_8h_ac84b689f65997690bfaf0c078c16cb04}{u\+Byte}} $\ast$data) override
+\item 
+virtual \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} \mbox{\hyperlink{class_q_t_connected_client_a8e02aa1fd51d69033d1dd1361fffbabe}{write\+Data}} (const \mbox{\hyperlink{_basic_types_8h_ac84b689f65997690bfaf0c078c16cb04}{u\+Byte}} $\ast$data, \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} max\+Size) override
+\item 
+virtual \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} \mbox{\hyperlink{class_q_t_connected_client_acf608954ff5d38e3490b506c049b30bd}{write\+Data}} (const \mbox{\hyperlink{_basic_types_8h_a4f063b9f3b660792b63b04e906552a21}{u\+Char}} $\ast$data) override
+\item 
+virtual void \mbox{\hyperlink{class_q_t_connected_client_a5d8b3c1c68f1111ea9231030804737af}{disconnect}} () override
+\begin{DoxyCompactList}\small\item\em Close socket connection with given client \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} \mbox{\hyperlink{class_q_t_connected_client_adc8230bd056962414b7cbd37df8028f1}{m\+Unique\+Id}} \{ -\/1 \}
+\begin{DoxyCompactList}\small\item\em The unique identifier \end{DoxyCompactList}\item 
+Q\+Tcp\+Socket $\ast$ \mbox{\hyperlink{class_q_t_connected_client_a7ea6e072eb7074559d7341ab2b0ad3e7}{m\+Client\+Socket}} \{ nullptr \}
+\begin{DoxyCompactList}\small\item\em Underlying socket \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_q_t_connected_client_a1dcf7174d7b8504e20b5510837238065}\label{class_q_t_connected_client_a1dcf7174d7b8504e20b5510837238065}} 
+\index{QTConnectedClient@{QTConnectedClient}!QTConnectedClient@{QTConnectedClient}}
+\index{QTConnectedClient@{QTConnectedClient}!QTConnectedClient@{QTConnectedClient}}
+\doxysubsubsection{\texorpdfstring{QTConnectedClient()}{QTConnectedClient()}}
+{\footnotesize\ttfamily Q\+T\+Connected\+Client\+::\+Q\+T\+Connected\+Client (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}}}]{unique\+Id,  }\item[{Q\+Tcp\+Socket $\ast$\&}]{client\+Socket }\end{DoxyParamCaption})}
+
+
+
+The constructor that takes underlying socket 
+
+
+\begin{DoxyParams}{Parameters}
+{\em unique\+Id} & The unique id that will be used to identify this sockets\\
+\hline
+{\em client\+Socket} & The socket that this interface manage\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_q_t_connected_client_a5d8b3c1c68f1111ea9231030804737af}\label{class_q_t_connected_client_a5d8b3c1c68f1111ea9231030804737af}} 
+\index{QTConnectedClient@{QTConnectedClient}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!QTConnectedClient@{QTConnectedClient}}
+\doxysubsubsection{\texorpdfstring{disconnect()}{disconnect()}}
+{\footnotesize\ttfamily void Q\+T\+Connected\+Client\+::disconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Close socket connection with given client 
+
+
+
+Implements \mbox{\hyperlink{class_i_connected_client_ab1fb4f2d5dcf6d662f60f7987df9712f}{I\+Connected\+Client}}.
+
+\mbox{\Hypertarget{class_q_t_connected_client_a7773e0f6ef3c0ee49e7fd822bdfcf310}\label{class_q_t_connected_client_a7773e0f6ef3c0ee49e7fd822bdfcf310}} 
+\index{QTConnectedClient@{QTConnectedClient}!getClientId@{getClientId}}
+\index{getClientId@{getClientId}!QTConnectedClient@{QTConnectedClient}}
+\doxysubsubsection{\texorpdfstring{getClientId()}{getClientId()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} Q\+T\+Connected\+Client\+::get\+Client\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the unique id associated with this client 
+
+\begin{DoxyReturn}{Returns}
+-\/1 if no socket associated ow unique id
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_connected_client_af5469187050b44c301cf86828ce01346}{I\+Connected\+Client}}.
+
+\mbox{\Hypertarget{class_q_t_connected_client_ad440c518ecc0e315a528251f2ad1ac58}\label{class_q_t_connected_client_ad440c518ecc0e315a528251f2ad1ac58}} 
+\index{QTConnectedClient@{QTConnectedClient}!getClientInformation@{getClientInformation}}
+\index{getClientInformation@{getClientInformation}!QTConnectedClient@{QTConnectedClient}}
+\doxysubsubsection{\texorpdfstring{getClientInformation()}{getClientInformation()}}
+{\footnotesize\ttfamily void Q\+T\+Connected\+Client\+::get\+Client\+Information (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_property_item}{Property\+Item}} $>$ \&}]{client\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Return the information related with this client (address, port, name) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Info} & The list of parameters\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_connected_client_ab851a94f324a4bbf9f018318d7fd879b}{I\+Connected\+Client}}.
+
+\mbox{\Hypertarget{class_q_t_connected_client_aabd502230d7d7d159a5f0ca60b02fd3a}\label{class_q_t_connected_client_aabd502230d7d7d159a5f0ca60b02fd3a}} 
+\index{QTConnectedClient@{QTConnectedClient}!getUnderlyingSocket@{getUnderlyingSocket}}
+\index{getUnderlyingSocket@{getUnderlyingSocket}!QTConnectedClient@{QTConnectedClient}}
+\doxysubsubsection{\texorpdfstring{getUnderlyingSocket()}{getUnderlyingSocket()}}
+{\footnotesize\ttfamily Q\+Tcp\+Socket $\ast$ Q\+T\+Connected\+Client\+::get\+Underlying\+Socket (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the underlying socket 
+
+\begin{DoxyReturn}{Returns}
+Underlying socket
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_q_t_connected_client_abe9c2eb6f8e2cf07b6f2c5f07f970730}\label{class_q_t_connected_client_abe9c2eb6f8e2cf07b6f2c5f07f970730}} 
+\index{QTConnectedClient@{QTConnectedClient}!isActive@{isActive}}
+\index{isActive@{isActive}!QTConnectedClient@{QTConnectedClient}}
+\doxysubsubsection{\texorpdfstring{isActive()}{isActive()}}
+{\footnotesize\ttfamily bool Q\+T\+Connected\+Client\+::is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Is this client still connected 
+
+\begin{DoxyReturn}{Returns}
+The client socket connection status
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_connected_client_ac568da35ed042c16110bbb322296283d}{I\+Connected\+Client}}.
+
+\mbox{\Hypertarget{class_q_t_connected_client_af1b65c3a3a6b87ad046d4af846ec0e2c}\label{class_q_t_connected_client_af1b65c3a3a6b87ad046d4af846ec0e2c}} 
+\index{QTConnectedClient@{QTConnectedClient}!readData@{readData}}
+\index{readData@{readData}!QTConnectedClient@{QTConnectedClient}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} Q\+T\+Connected\+Client\+::read\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}}}]{max\+Byte\+Count,  }\item[{\mbox{\hyperlink{_basic_types_8h_ac84b689f65997690bfaf0c078c16cb04}{u\+Byte}} $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+Byte\+Count} & \\
+\hline
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_connected_client_a7b03b3f212e7e24f576e51dc792f1a4c}{I\+Connected\+Client}}.
+
+\mbox{\Hypertarget{class_q_t_connected_client_a8e02aa1fd51d69033d1dd1361fffbabe}\label{class_q_t_connected_client_a8e02aa1fd51d69033d1dd1361fffbabe}} 
+\index{QTConnectedClient@{QTConnectedClient}!writeData@{writeData}}
+\index{writeData@{writeData}!QTConnectedClient@{QTConnectedClient}}
+\doxysubsubsection{\texorpdfstring{writeData()}{writeData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} Q\+T\+Connected\+Client\+::write\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_basic_types_8h_ac84b689f65997690bfaf0c078c16cb04}{u\+Byte}} $\ast$}]{data,  }\item[{\mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}}}]{max\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_connected_client_a7e86b81afc9041419b261a041dc45454}{I\+Connected\+Client}}.
+
+\mbox{\Hypertarget{class_q_t_connected_client_acf608954ff5d38e3490b506c049b30bd}\label{class_q_t_connected_client_acf608954ff5d38e3490b506c049b30bd}} 
+\index{QTConnectedClient@{QTConnectedClient}!writeData@{writeData}}
+\index{writeData@{writeData}!QTConnectedClient@{QTConnectedClient}}
+\doxysubsubsection{\texorpdfstring{writeData()}{writeData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} Q\+T\+Connected\+Client\+::write\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_basic_types_8h_a4f063b9f3b660792b63b04e906552a21}{u\+Char}} $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_connected_client_a0335ab362d3e7dc86994ce08f4363bdf}{I\+Connected\+Client}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_q_t_connected_client_a7ea6e072eb7074559d7341ab2b0ad3e7}\label{class_q_t_connected_client_a7ea6e072eb7074559d7341ab2b0ad3e7}} 
+\index{QTConnectedClient@{QTConnectedClient}!mClientSocket@{mClientSocket}}
+\index{mClientSocket@{mClientSocket}!QTConnectedClient@{QTConnectedClient}}
+\doxysubsubsection{\texorpdfstring{mClientSocket}{mClientSocket}}
+{\footnotesize\ttfamily Q\+Tcp\+Socket$\ast$ Q\+T\+Connected\+Client\+::m\+Client\+Socket \{ nullptr \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Underlying socket 
+
+\mbox{\Hypertarget{class_q_t_connected_client_adc8230bd056962414b7cbd37df8028f1}\label{class_q_t_connected_client_adc8230bd056962414b7cbd37df8028f1}} 
+\index{QTConnectedClient@{QTConnectedClient}!mUniqueId@{mUniqueId}}
+\index{mUniqueId@{mUniqueId}!QTConnectedClient@{QTConnectedClient}}
+\doxysubsubsection{\texorpdfstring{mUniqueId}{mUniqueId}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_basic_types_8h_a546baa019aa8d216ba764d68e7addb4e}{u\+Int64}} Q\+T\+Connected\+Client\+::m\+Unique\+Id \{ -\/1 \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The unique identifier 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Network\+Library/\mbox{\hyperlink{_q_t_connected_client_8h}{Q\+T\+Connected\+Client.\+h}}\item 
+Network\+Library/\mbox{\hyperlink{_q_t_connected_client_8cpp}{Q\+T\+Connected\+Client.\+cpp}}\end{DoxyCompactItemize}
