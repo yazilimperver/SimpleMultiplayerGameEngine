@@ -13,7 +13,7 @@ branches:
     - master
 
 install:
-  - set QTDIR=C:\Qt\5.12.2\msvc2017
+  - set QTDIR=C:\Qt\5.13.0\msvc2017
   - set PATH=%QTDIR%\bin;C:\Qt\Tools\mingw730\x86_64-w64-mingw32\bin;%PATH%;
   - set QtMsBuild=%APPVEYOR_BUILD_FOLDER%\QtMsBuild
 
