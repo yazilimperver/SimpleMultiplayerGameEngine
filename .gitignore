@@ -28,3 +28,5 @@
 /QTServerTestApp/QTServerTestApp.vcxproj.user
 *.user
 /QTServerTestApp/GeneratedFiles
+/CommonUILibrary/GeneratedFiles
+/QTClientTestApp/GeneratedFiles
