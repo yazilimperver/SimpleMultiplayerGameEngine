@@ -1,54 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="QtIpItem.cpp">
-      <Filter>IPComponent</Filter>
-    </ClCompile>
     <ClCompile Include="QTClientTestApp.cpp">
       <Filter>ClientApp</Filter>
-    </ClCompile>
-    <ClCompile Include="MultiPurposeInputField.cpp">
-      <Filter>MultiPurposeInputField</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="QtIpItem.h">
-      <Filter>IPComponent</Filter>
-    </QtMoc>
     <QtMoc Include="QTClientTestApp.h">
       <Filter>ClientApp</Filter>
     </QtMoc>
-    <QtMoc Include="MultiPurposeInputField.h">
-      <Filter>MultiPurposeInputField</Filter>
-    </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="QtIpItem.ui">
-      <Filter>IPComponent</Filter>
-    </QtUic>
     <QtUic Include="QTClientTestApp.ui">
       <Filter>ClientApp</Filter>
     </QtUic>
-    <QtUic Include="MultiPurposeInputField.ui">
-      <Filter>MultiPurposeInputField</Filter>
-    </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="IPComponent">
-      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
-      <Extensions>ui</Extensions>
-      <ParseFiles>true</ParseFiles>
-    </Filter>
     <Filter Include="ClientApp">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
       <ParseFiles>true</ParseFiles>
-    </Filter>
-    <Filter Include="MultiPurposeInputField">
-      <UniqueIdentifier>{6bfebafa-b3a2-4859-86a8-7a28ba6f064a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>

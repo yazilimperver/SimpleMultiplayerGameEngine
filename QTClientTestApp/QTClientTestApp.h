@@ -14,9 +14,9 @@
 #include <QGroupBox>
 #include <QCheckBox>
 #include "ui_QTClientTestApp.h"
-#include "MultiPurposeInputField.h"
 
-#include "QtIpItem.h"
+#include <CommonUILibrary/MultiPurposeInputField/MultiPurposeInputField.h>
+#include <CommonUILibrary/IPComponent/QtIpItem.h>
 
 #include <NetworkLibrary/QTCPClient.h>
 

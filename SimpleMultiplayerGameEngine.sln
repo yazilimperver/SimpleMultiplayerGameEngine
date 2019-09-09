@@ -12,6 +12,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QTClientTestApp", "QTClient
 		{B12702AD-ABFB-343A-A199-8E24837244A3} = {B12702AD-ABFB-343A-A199-8E24837244A3}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CommonUILibrary", "CommonUILibrary\CommonUILibrary.vcxproj", "{6AB7CC12-C010-4921-BEB1-31716FB7E797}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -42,12 +44,18 @@ Global
 		{6E328AC3-29D2-472A-861D-D784482BD5F8}.Release|x64.Build.0 = Release|x64
 		{6E328AC3-29D2-472A-861D-D784482BD5F8}.Release|x86.ActiveCfg = Release|Win32
 		{6E328AC3-29D2-472A-861D-D784482BD5F8}.Release|x86.Build.0 = Release|Win32
+		{6AB7CC12-C010-4921-BEB1-31716FB7E797}.Debug|x64.ActiveCfg = Debug|Win32
+		{6AB7CC12-C010-4921-BEB1-31716FB7E797}.Debug|x86.ActiveCfg = Debug|Win32
+		{6AB7CC12-C010-4921-BEB1-31716FB7E797}.Debug|x86.Build.0 = Debug|Win32
+		{6AB7CC12-C010-4921-BEB1-31716FB7E797}.Release|x64.ActiveCfg = Release|Win32
+		{6AB7CC12-C010-4921-BEB1-31716FB7E797}.Release|x86.ActiveCfg = Release|Win32
+		{6AB7CC12-C010-4921-BEB1-31716FB7E797}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {CCAEE02E-977F-446A-8C7A-9841E4F2686F}
 		Qt5Version = $(DefaultQtVersion)
+		SolutionGuid = {CCAEE02E-977F-446A-8C7A-9841E4F2686F}
 	EndGlobalSection
 EndGlobal

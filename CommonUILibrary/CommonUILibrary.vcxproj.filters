@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="MultiPurposeInputField">
+      <UniqueIdentifier>{7b6f6a87-46ce-4e57-97a4-20ed2a8f6e4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IPComponent">
+      <UniqueIdentifier>{65278207-1ca9-472c-beab-81a0834f6bb9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="IPComponent\QtIpItem.cpp">
+      <Filter>IPComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiPurposeInputField\MultiPurposeInputField.cpp">
+      <Filter>MultiPurposeInputField</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="IPComponent\QtIpItem.h">
+      <Filter>IPComponent</Filter>
+    </QtMoc>
+    <QtMoc Include="MultiPurposeInputField\MultiPurposeInputField.h">
+      <Filter>MultiPurposeInputField</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="IPComponent\QtIpItem.ui">
+      <Filter>IPComponent</Filter>
+    </QtUic>
+    <QtUic Include="MultiPurposeInputField\MultiPurposeInputField.ui">
+      <Filter>MultiPurposeInputField</Filter>
+    </QtUic>
+  </ItemGroup>
+</Project>

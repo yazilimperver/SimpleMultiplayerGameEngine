@@ -1,5 +1,5 @@
 #include "QTClientTestApp.h"
-#include "QtIpItem.h"
+
 #include <QPushButton>
 #include <QGroupBox>
 #include <QFile>
