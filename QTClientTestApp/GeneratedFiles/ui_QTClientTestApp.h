@@ -12,9 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
-#include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -22,28 +19,21 @@ QT_BEGIN_NAMESPACE
 class Ui_QTClientTestAppClass
 {
 public:
-    QMenuBar *menuBar;
-    QToolBar *mainToolBar;
     QWidget *centralWidget;
-    QStatusBar *statusBar;
 
     void setupUi(QMainWindow *QTClientTestAppClass)
     {
         if (QTClientTestAppClass->objectName().isEmpty())
             QTClientTestAppClass->setObjectName(QString::fromUtf8("QTClientTestAppClass"));
-        QTClientTestAppClass->resize(600, 400);
-        menuBar = new QMenuBar(QTClientTestAppClass);
-        menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        QTClientTestAppClass->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(QTClientTestAppClass);
-        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
-        QTClientTestAppClass->addToolBar(mainToolBar);
+        QTClientTestAppClass->resize(529, 65);
         centralWidget = new QWidget(QTClientTestAppClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(centralWidget->sizePolicy().hasHeightForWidth());
+        centralWidget->setSizePolicy(sizePolicy);
         QTClientTestAppClass->setCentralWidget(centralWidget);
-        statusBar = new QStatusBar(QTClientTestAppClass);
-        statusBar->setObjectName(QString::fromUtf8("statusBar"));
-        QTClientTestAppClass->setStatusBar(statusBar);
 
         retranslateUi(QTClientTestAppClass);
 
