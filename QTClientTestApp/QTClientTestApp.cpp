@@ -3,9 +3,9 @@
 #include <QPushButton>
 #include <QGroupBox>
 #include <QFile>
+#include <QDateTime>
 #include <QLabel>
 #include <qpixmap>
-#include <QDateTime>
 #include <QListWidget>
 #include <QMessageBox>
 
@@ -27,6 +27,8 @@ QTClientTestApp::QTClientTestApp(QWidget *parent)
 
 	// Initial settings
 	this->msgSizeChanged(mMsgSize.text());
+
+	this->updateConnectionStatus(false);
 }
 
 void QTClientTestApp::performSignalSlotConnections()
