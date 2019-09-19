@@ -34,6 +34,11 @@ std::string MultiPurposeInputField::getText()
 	return ui.inputField->text().toStdString();
 }
 
+void MultiPurposeInputField::setText(const QString& str)
+{
+	ui.inputField->setText(str);
+}
+
 QByteArray MultiPurposeInputField::getBinaryData()
 {
 	// TBD: add extra controls

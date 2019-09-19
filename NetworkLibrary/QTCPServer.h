@@ -60,6 +60,7 @@ public:
 
 	/// <summary>
 	/// Disconnect given client. The client will also removed from our connected list
+	/// Note that disconnection event will not be raised
 	/// </summary>
 	/// <param name="clientId">The unique id of client</param>
 	virtual void disconnectClient(uUInt64 clientId) override;
@@ -103,6 +104,12 @@ private slots:
 	/// </summary>
 	void clientErrorOccurred(QAbstractSocket::SocketError socketError);
 
+	/// <summary>
+	/// Slot for client disconnection
+	/// </summary>
+	/// <param name="clientId">Disconnected client id</param>
+	void clientDisconnectedSlot(uInt64 clientId);
+
 signals:
 	/// <summary>
 	/// The signal is emitted when a new client is connected
@@ -135,6 +142,12 @@ signals:
 	/// <param name="errorCode">The occurred error code</param>
 	void errorOccurred(int errorCode);
 protected:
+
+	/// <summary>
+	/// Remove the client with given id
+	/// </summary>
+	/// <param name="clientId"></param>
+	void removeClient(uUInt64 clientId);
 
 	/// <summary>
 	/// Initialization status

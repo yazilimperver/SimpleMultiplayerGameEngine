@@ -1,4 +1,6 @@
 <RCC>
-    <qresource prefix="QTServerTestApp">
+    <qresource prefix="/QTServerTestApp">
+        <file>data/AppIco.ico</file>
+        <file>data/AppLogo.png</file>
     </qresource>
 </RCC>

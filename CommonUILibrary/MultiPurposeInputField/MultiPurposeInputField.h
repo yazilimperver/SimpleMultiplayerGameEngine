@@ -49,6 +49,12 @@ public:
 	std::string getText();
 
 	/*!
+	 * @brief	Sets the content
+	 * @param	val	The string representation of content
+	 */
+	void setText(const QString& str);
+
+	/*!
 	 * @brief	Obtain the number represented by this input which is only applicable for eINPUT_DATA_TYPE_NUMBER
 	 *
 	 * @returns	The number.

@@ -53,9 +53,17 @@ public:
 	/// <param name="data"></param>
 	/// <returns></returns>
 	virtual uInt64 readData(uInt64 maxByteCount, uByte* data) override;
+	virtual QByteArray readData(uInt64 maxByteCount) override;
 	virtual uInt64 writeData(const uByte* data, uInt64 maxSize) override;
 	virtual uInt64 writeData(const uChar* data) override;
 	virtual void disconnect() override;
+
+	/// <summary>
+	/// Available data size
+	/// </summary>
+	/// <returns>@returns	An uInt64.</returns>
+	virtual uInt64 availableDataSize() override;
+
 protected:
 	/// <summary>
 	/// The unique identifier

@@ -132,8 +132,10 @@ void QTClientTestApp::sendClicked()
 		else
 			mClientSocket.writeData(textToSend.c_str());
 
-		this->addMessageToConversation("[SEND] " + QString(textToSend.c_str()));
+		this->addMessageToConversation("[SEND] 0x" + QString(textToSend.c_str()));
 	}
+
+	mServerMsgLineEdit.setText("");
 }
 
 void QTClientTestApp::clearClicked()

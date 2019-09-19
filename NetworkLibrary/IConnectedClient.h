@@ -11,6 +11,7 @@
 #include <NetworkLibrary/BasicTypes.h>
 
 #include <vector>
+#include <QByteArray>
 #include <NetworkLibrary/PropertyItem.h>
 
 /// <summary>
@@ -47,8 +48,15 @@ public:
 		virtual void getClientInformation(std::vector<PropertyItem>& clientInfo) = 0;
 
 		/// <summary>
+		/// Available data size
+		/// </summary>
+		/// <returns>@returns	An uInt64.</returns>
+		virtual uInt64 availableDataSize() = 0;
+
+		/// <summary>
 		/// Data APIs. Read can be initiated when a data read is ready
 		/// </summary>
+		virtual QByteArray readData(uInt64 maxByteCount) = 0;
 		virtual uInt64 readData(uInt64 maxByteCount, uByte* data) = 0;
 		virtual uInt64 writeData(const uByte* data, uInt64 maxSize) = 0;
 		virtual uInt64 writeData(const uChar* data) = 0;

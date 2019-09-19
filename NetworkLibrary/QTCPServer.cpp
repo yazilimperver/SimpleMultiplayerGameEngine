@@ -79,7 +79,29 @@ void QTCPServer::startListening()
 void QTCPServer::stopListening()
 {
 	if (mTCPServer.isListening())
+	{
+		// disconnect each client
+		for (auto& client : mClientMapping)
+		{
+			// inform listeners
+			emit clientDisconnected(client.first);
+
+			// disconnect all slots
+			client.second->getUnderlyingSocket()->disconnect();
+
+			// disconnect
+			client.second->disconnect();
+
+			// remove client
+			delete client.second;
+		}
+
+		mClientIdMapping.clear();
+		mClientMapping.clear();
+
 		mTCPServer.disconnect();
+		mTCPServer.close();
+	}
 }
 
 bool QTCPServer::isListening()
@@ -90,7 +112,15 @@ bool QTCPServer::isListening()
 void QTCPServer::disconnectClient(uUInt64 clientId)
 {
 	if (auto itr = mClientMapping.find(clientId); itr != mClientMapping.end())
+	{
+		// disconnect all slots
+		itr->second->getUnderlyingSocket()->disconnect();
+
+		// disconnect from client
 		itr->second->disconnect();
+
+		this->removeClient(clientId);
+	}
 }
 
 bool QTCPServer::isConnected(uUInt64 clientId)
@@ -142,13 +172,42 @@ void QTCPServer::newClientConnected()
 
 		// add new signal/slot for newly connected client
 		connect(newConn, &QIODevice::readyRead, [=] {clientDataReadyToRead(currentId); });
-		connect(newConn, &QAbstractSocket::disconnected, [=] {clientDisconnected(currentId); });
+		connect(newConn, &QAbstractSocket::disconnected, [=] {clientDisconnectedSlot(currentId); });
 		connect(newConn, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(clientErrorOccurred(QAbstractSocket::SocketError)));
 
 		mClientSeedId++;
 
 		// Inform listeners
 		emit newClientConnected(currentId);
+	}
+}
+
+void QTCPServer::clientDisconnectedSlot(uInt64 clientId)
+{
+	// inform listeners
+	emit clientDisconnected(clientId);
+	
+	if (mClientMapping.size() > 0)
+	{
+		// disconnect all slots
+		mClientMapping[clientId]->getUnderlyingSocket()->disconnect();
+
+		// remove corresponding entries
+		this->removeClient(clientId);
+	}
+}
+
+void QTCPServer::removeClient(uUInt64 clientId)
+{
+	if (auto clientIdItr = mClientMapping.find(clientId); clientIdItr != mClientMapping.end())
+	{
+		QTConnectedClient* connClientInst = mClientMapping[clientId];
+
+		// remove client id mapping item
+		mClientIdMapping.erase(connClientInst->getUnderlyingSocket());
+		
+		delete mClientMapping[clientId];
+		mClientMapping.erase(clientId);
 	}
 }
 

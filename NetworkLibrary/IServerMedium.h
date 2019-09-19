@@ -15,19 +15,20 @@
 class IConnectedClient;
 class CommunicationParameters;
 
-/// <summary>
-/// The name of parameters that can be used for server mediums
-/// The host address and port are must
-/// If no local port is provided, the currently available port is used this purpose
-/// This port then can be queried via assigned port
-/// </summary>
-const std::string cIServerMedium_Parameter_LocalAddress{ "LocalAddress" };
-const std::string cIServerMedium_Parameter_LocalPort{ "LocalPort" };
-const std::string cIServerMedium_Parameter_MaxPendingConnections{ "MaxPendingConnections" };
 
 class IServerMedium
 {
 public:
+
+	/// <summary>
+	/// The name of parameters that can be used for server mediums
+	/// The host address and port are must
+	/// If no local port is provided, the currently available port is used this purpose
+	/// This port then can be queried via assigned port
+	/// </summary>
+	const std::string cIServerMedium_Parameter_LocalAddress{ "LocalAddress" };
+	const std::string cIServerMedium_Parameter_LocalPort{ "LocalPort" };
+	const std::string cIServerMedium_Parameter_MaxPendingConnections{ "MaxPendingConnections" };
 
 	/// <summary>
 	/// Each communication medium configuration parameters should be passed via this API.
